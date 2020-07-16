@@ -1,0 +1,117 @@
+
+@import '../_global/style.scss';
+
+$navbar-height: 50px;
+$toggler-size: 24px;
+
+$navbar-padding: 10px; // for logo & expanded navbar items
+
+.navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $navbar-height;
+    background: $color-primary;
+    color: white;
+
+    // LOGO (all devices)
+    .logo {
+        margin-left: $navbar-padding;
+        color: white;
+        font-weight: bold;
+    }
+
+    // TOGGLE BUTTON (mobile, tablet)
+    .menu-toggler-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: $navbar-height;
+        height: $navbar-height;
+        cursor: pointer;
+
+        .toggler-icon {
+            width: $toggler-size;
+            height: $toggler-size;
+        }
+    }
+
+    // MENU (mobile, tablet)
+    .menu-collapse {
+        position: absolute;
+        top: $navbar_height;
+        right: -100vw;
+        width: 100vw;
+        height: calc(100vh - #{$navbar-height});
+        background: $color-primary;
+        color: white;
+        z-index: 100;
+        transition: 500ms right;
+        &.active {
+            right: 0;
+        }
+
+        @include tablet {
+            width: 300px;
+            right: -300px;
+        }
+    }
+
+    // NAVBAR ITEMS 
+    .navbar-items {
+        display: flex;
+
+        .navbar-item {
+
+            .link {
+                color: white;
+            }
+        }
+
+        // EXPANDED (desktop)
+        &.expanded {
+            display: none;
+            flex-direction: row;
+            margin-right: $navbar-padding;
+
+            .navbar-item {
+                margin-left: 10px;
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+
+            @include desktop { 
+                display: flex; 
+            }
+        }
+
+        // COLLAPSED (mobile, tablet)
+        &.collapsed {
+            flex-direction: column;
+            
+            .navbar-item {
+
+                .link {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    height: 50px;
+                    border-bottom: 1px white solid;
+
+                    .link-value {
+                        padding-left: 25px;
+                    }
+                }
+            }
+        }
+    }
+
+    // don't display toggle button and menu on desktop
+    .menu-toggler-container, .menu-collapse {
+        @include desktop {
+            display: none;
+        }
+    }
+}

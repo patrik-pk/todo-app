@@ -1,0 +1,39 @@
+@import '../_global/style.scss';
+
+$submit-width: 100px;
+$input-width: 300px;
+
+$input-padding: 5px;
+
+$input-margin: 10px; // margin between inputs
+$submit-margin: 10px; // margin between submit and the last input
+
+.form-container {
+    display: flex;
+    justify-content: center;
+
+    .entry-form {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding-top: 100px;
+
+        .entry-input {
+            width: $input-width;
+            margin-bottom: 10px;
+            padding: $input-padding;
+        }
+    
+        .submit-btn {
+            width: $submit-width;
+            margin-top: calc(#{$submit-margin} - #{$input-margin});
+            margin-left: calc(#{$input-width} - #{$submit-width + #{$input-padding}} * 2);
+            padding: 5px 0;
+            transition: 500ms all;
+            &:hover {
+                color: white;
+                background: $color-primary;
+            }
+        }
+    }
+}

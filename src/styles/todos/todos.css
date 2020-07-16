@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+* .app {
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+* .container {
+  width: 80%;
+  margin: auto;
+}
+
+* a {
+  text-decoration: none;
+  color: black;
+}
+
+* li {
+  list-style: none;
+}
+
+* button {
+  border: 0;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.todo-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 100px;
+}
+
+.todo-page .todo-form-container, .todo-page .todo-list {
+  width: 50%;
+}
+
+.todo-page .todo-form-container .todo-form .add-new-text {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.todo-page .todo-form-container .todo-form .todo-input {
+  padding: 5px 5px;
+}
+
+.todo-page .todo-form-container .todo-form .submit-btn, .todo-page .todo-form-container .todo-form .clear-btn {
+  margin-left: 5px;
+  padding: 6px 10px;
+}
+
+.todo-page .todo-form-container .todo-form .submit-btn {
+  background: black;
+  color: white;
+}
+
+.todo-page .todo-list .todo-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 10px;
+  background: #eee;
+  margin-bottom: 10px;
+}
+
+.todo-page .todo-list .todo-item:last-child {
+  margin-bottom: 0;
+}
+
+.todo-page .todo-list .todo-item .task-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 70%;
+}
+
+.todo-page .todo-list .todo-item .edit-btn, .todo-page .todo-list .todo-item .delete-btn {
+  padding: 5px 10px;
+}
+
+.todo-page .todo-list .todo-item .edit-btn {
+  background: black;
+  color: white;
+}
+
+.todo-page .todo-list .todo-item .delete-btn {
+  margin-left: 7px;
+  background: darkred;
+  color: white;
+}
+/*# sourceMappingURL=todos.css.map */

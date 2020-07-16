@@ -1,0 +1,70 @@
+@import '../_global/style.scss';
+
+.todo-page {
+    display: flex;
+    padding-top: 100px;
+
+    .todo-form-container, .todo-list {
+        width: 50%;
+    }
+
+    .todo-form-container {
+
+        .todo-form {
+
+            .add-new-text {
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            .todo-input {
+                padding: 5px 5px;
+            }
+
+            .submit-btn, .clear-btn {
+                margin-left: 5px;
+                padding: 6px 10px;
+            }
+            
+            .submit-btn {
+                background: black;
+                color: white;
+            }
+        }
+    }
+
+    .todo-list {
+
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 10px;
+            background: #eee;
+            margin-bottom: 10px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .task-text {
+                display: flex;
+                align-items: center;
+                max-width: 70%;
+            }
+
+            .edit-btn, .delete-btn {
+                padding: 5px 10px;
+            }
+
+            .edit-btn {
+                background: black;
+                color: white;
+            }
+
+            .delete-btn {
+                margin-left: 7px;
+                background: darkred;
+                color: white;
+            }
+        }
+    }
+}
