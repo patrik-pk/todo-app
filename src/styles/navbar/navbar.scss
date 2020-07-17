@@ -1,7 +1,6 @@
 
 @import '../_global/style.scss';
 
-$navbar-height: 50px;
 $toggler-size: 24px;
 
 $navbar-padding: 10px; // for logo & expanded navbar items
@@ -11,7 +10,7 @@ $navbar-padding: 10px; // for logo & expanded navbar items
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: $navbar-height;
+    height: $navbar-height; // in global styles.scss
     background: $color-primary;
     color: white;
 

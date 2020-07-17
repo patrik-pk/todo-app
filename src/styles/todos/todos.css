@@ -9,11 +9,6 @@
   overflow-x: hidden;
 }
 
-* .container {
-  width: 80%;
-  margin: auto;
-}
-
 * a {
   text-decoration: none;
   color: black;
@@ -33,33 +28,32 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 100px;
 }
 
-.todo-page .todo-form-container, .todo-page .todo-list {
-  width: 50%;
+.todo-page .container .todo-top .current-category {
+  margin-top: 20px;
 }
 
-.todo-page .todo-form-container .todo-form .add-new-text {
+.todo-page .container .todo-form-container .todo-form .add-new-text {
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-.todo-page .todo-form-container .todo-form .todo-input {
+.todo-page .container .todo-form-container .todo-form .todo-input {
   padding: 5px 5px;
 }
 
-.todo-page .todo-form-container .todo-form .submit-btn, .todo-page .todo-form-container .todo-form .clear-btn {
+.todo-page .container .todo-form-container .todo-form .submit-btn, .todo-page .container .todo-form-container .todo-form .clear-btn {
   margin-left: 5px;
   padding: 6px 10px;
 }
 
-.todo-page .todo-form-container .todo-form .submit-btn {
+.todo-page .container .todo-form-container .todo-form .submit-btn {
   background: black;
   color: white;
 }
 
-.todo-page .todo-list .todo-item {
+.todo-page .container .todo-list .todo-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -71,11 +65,11 @@
   margin-bottom: 10px;
 }
 
-.todo-page .todo-list .todo-item:last-child {
+.todo-page .container .todo-list .todo-item:last-child {
   margin-bottom: 0;
 }
 
-.todo-page .todo-list .todo-item .task-text {
+.todo-page .container .todo-list .todo-item .task-text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -85,16 +79,16 @@
   max-width: 70%;
 }
 
-.todo-page .todo-list .todo-item .edit-btn, .todo-page .todo-list .todo-item .delete-btn {
+.todo-page .container .todo-list .todo-item .edit-btn, .todo-page .container .todo-list .todo-item .delete-btn {
   padding: 5px 10px;
 }
 
-.todo-page .todo-list .todo-item .edit-btn {
+.todo-page .container .todo-list .todo-item .edit-btn {
   background: black;
   color: white;
 }
 
-.todo-page .todo-list .todo-item .delete-btn {
+.todo-page .container .todo-list .todo-item .delete-btn {
   margin-left: 7px;
   background: darkred;
   color: white;

@@ -9,11 +9,6 @@
   overflow-x: hidden;
 }
 
-* .container {
-  width: 80%;
-  margin: auto;
-}
-
 * a {
   text-decoration: none;
   color: black;
@@ -67,6 +62,6 @@
 
 .form-container .entry-form .submit-btn:hover {
   color: white;
-  background: darkred;
+  background: #3dbd99;
 }
 /*# sourceMappingURL=entry.css.map */

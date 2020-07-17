@@ -16,13 +16,11 @@ export default function App() {
       <Router>
         <div className='app'>
           <Navbar logo={'Final App'} />
-          <div className='container'>
-            <Switch>
-              <Route exact path='/register' component={Register} />
-              <Route exact path='/login' component={Login} />
-              <Route path='/todos' component={TodoPage} />
-            </Switch>
-          </div>
+          <Switch>
+            <Route exact path='/register' component={Register} />
+            <Route exact path='/login' component={Login} />
+            <Route path='/todos' component={TodoPage} />
+          </Switch>
         </div>
       </Router>
     </Provider>
