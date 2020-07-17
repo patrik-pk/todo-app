@@ -40,14 +40,12 @@ function TodoForm({ addTodo, updateTodo, current, clearCurrent }) {
     }
 
     return (
-        <div className='todo-form-container'>
-            <form className='todo-form' onSubmit={onSubmit}>
-                <p className='add-new-text'>{current === null ? 'Add new todo' : 'Update todo'}</p>
-                <input className='todo-input' type='text' value={task} onChange={onChange}/>
-                <button className='submit-btn' type='submit'>Submit</button>
-                {current !== null && <button className='clear-btn' onClick={onClear}>Clear</button>}
-            </form>
-        </div>
+        <form className='todo-form' onSubmit={onSubmit}>
+            {/*<p className='add-new-text'>{current === null ? 'Add new todo' : 'Update todo'}</p>*/}
+            <input className='todo-input' type='text' value={task} onChange={onChange}/>
+            <button className='submit-btn' type='submit'>Submit</button>
+            {current !== null && <button className='clear-btn' onClick={onClear}>Clear</button>}
+        </form>
     )
 }
 

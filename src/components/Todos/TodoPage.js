@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from '../Sidebar/Sidebar'
+import Sidebar from './Sidebar'
 import TodoForm from './TodoForm'
 import TodoList from './TodoList'
 
@@ -9,11 +9,11 @@ export default function TodoPage() {
     return (
         <div className='todo-page'>
             <Sidebar />
-            <div className='todo-top'>
+            <div className='todo-section'>
                 <h3 className='current-category'>Current Category</h3>
+                <TodoForm />
+                <TodoList />
             </div>
-            <TodoForm />
-            <TodoList />
         </div>
     )
 }

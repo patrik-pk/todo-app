@@ -30,30 +30,111 @@
   display: flex;
 }
 
-.todo-page .container .todo-top .current-category {
+.todo-page * {
+  margin: 0;
+  padding: 0;
+}
+
+.todo-page * .app {
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.todo-page * a {
+  text-decoration: none;
+  color: black;
+}
+
+.todo-page * li {
+  list-style: none;
+}
+
+.todo-page * button {
+  border: 0;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.todo-page .sidebar {
+  width: 300px;
+  height: calc(100vh - 50px);
+  background: #eee;
+  border-right: 1px #bbb solid;
+}
+
+.todo-page .sidebar .categories-heading {
+  margin-top: 20px;
+  padding-left: 20px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+
+.todo-page .sidebar .categories {
+  margin-top: 15px;
+}
+
+.todo-page .sidebar .categories .category-item .category-link {
+  display: block;
+  padding: 10px 0;
+  padding-left: 30px;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.todo-page .sidebar .categories .category-item .category-link:hover {
+  border-left: 5px #999 solid;
+  padding-left: calc(30px - 5px);
+}
+
+.todo-page .sidebar .categories .category-item .category-link.active {
+  padding-left: calc(30px - 5px);
+  background: #eee;
+  color: #3dbd99;
+  border-left: 5px #3dbd99 solid;
+}
+
+.todo-page .todo-section {
+  width: calc(0.9 * (100vw - 300px));
+  margin: 0 auto;
+}
+
+.todo-page .todo-section .current-category {
   margin-top: 20px;
 }
 
-.todo-page .container .todo-form-container .todo-form .add-new-text {
+.todo-page .todo-section .todo-form {
+  margin-top: 20px;
+}
+
+.todo-page .todo-section .todo-form .add-new-text {
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-.todo-page .container .todo-form-container .todo-form .todo-input {
+.todo-page .todo-section .todo-form .todo-input {
+  width: calc(100% - 2 * (5px + 2px) - 60px - 5px);
   padding: 5px 5px;
 }
 
-.todo-page .container .todo-form-container .todo-form .submit-btn, .todo-page .container .todo-form-container .todo-form .clear-btn {
+.todo-page .todo-section .todo-form .submit-btn, .todo-page .todo-section .todo-form .clear-btn {
+  width: 60px;
+  padding: 6px 0;
   margin-left: 5px;
-  padding: 6px 10px;
 }
 
-.todo-page .container .todo-form-container .todo-form .submit-btn {
+.todo-page .todo-section .todo-form .submit-btn {
   background: black;
   color: white;
 }
 
-.todo-page .container .todo-list .todo-item {
+.todo-page .todo-section .todo-list {
+  margin-top: 20px;
+}
+
+.todo-page .todo-section .todo-list .todo-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -65,11 +146,11 @@
   margin-bottom: 10px;
 }
 
-.todo-page .container .todo-list .todo-item:last-child {
+.todo-page .todo-section .todo-list .todo-item:last-child {
   margin-bottom: 0;
 }
 
-.todo-page .container .todo-list .todo-item .task-text {
+.todo-page .todo-section .todo-list .todo-item .task-text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,16 +160,16 @@
   max-width: 70%;
 }
 
-.todo-page .container .todo-list .todo-item .edit-btn, .todo-page .container .todo-list .todo-item .delete-btn {
+.todo-page .todo-section .todo-list .todo-item .edit-btn, .todo-page .todo-section .todo-list .todo-item .delete-btn {
   padding: 5px 10px;
 }
 
-.todo-page .container .todo-list .todo-item .edit-btn {
+.todo-page .todo-section .todo-list .todo-item .edit-btn {
   background: black;
   color: white;
 }
 
-.todo-page .container .todo-list .todo-item .delete-btn {
+.todo-page .todo-section .todo-list .todo-item .delete-btn {
   margin-left: 7px;
   background: darkred;
   color: white;

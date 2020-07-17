@@ -1,43 +1,54 @@
 @import '../_global/style.scss';
 
+// Input Form Variables
+$input-padding-horizontal: 5px;
+$input-padding-vertical: 5px;
+
+$input-btn-width: 60px;
+$input-btn-ml: 5px;
+
 .todo-page {
     display: flex;
 
-    .container {
+    // Sidebar
+    @import '../sidebar/sidebar.scss';
 
-        .todo-top {
+    // Rest of the page
+    .todo-section {
+        width: calc(0.9 * (100vw - #{$sidebar-width}));
+        margin: 0 auto;
     
-            .current-category {
-                margin-top: 20px;
-            }
+        .current-category {
+            margin-top: 20px;
         }
     
-        .todo-form-container {
-    
-            .todo-form {
-    
-                .add-new-text {
-                    margin-bottom: 5px;
-                    font-weight: bold;
-                }
-    
-                .todo-input {
-                    padding: 5px 5px;
-                }
-    
-                .submit-btn, .clear-btn {
-                    margin-left: 5px;
-                    padding: 6px 10px;
-                }
-                
-                .submit-btn {
-                    background: black;
-                    color: white;
-                }
+        .todo-form {
+            margin-top: 20px;
+
+            .add-new-text {
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            .todo-input {
+                width: calc(100% - 2 * (#{$input-padding-horizontal} + 2px) - #{$input-btn-width} - #{$input-btn-ml});
+                padding: 5px 5px;
+            }
+
+            .submit-btn, .clear-btn {
+                width: 60px;
+                padding: 6px 0;
+                margin-left: $input-btn-ml;
+            }
+            
+            .submit-btn {
+                background: black;
+                color: white;
             }
         }
     
         .todo-list {
+            margin-top: 20px;
     
             .todo-item {
                 display: flex;
