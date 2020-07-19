@@ -46,8 +46,8 @@ function TodoForm({ addTodo, updateTodo, current, clearCurrent }) {
         <form className='todo-form' onSubmit={onSubmit}>
             {/*<p className='add-new-text'>{current === null ? 'Add new todo' : 'Update todo'}</p>*/}
             <input className={`todo-input ${clearActive}`} type='text' value={task} onChange={onChange}/>
-            <button className={`clear-btn ${clearActive}`} onClick={onClear}>X</button>
-            <button className='submit-btn' type='submit'>Submit</button>
+            <button type='button' className={`clear-btn ${clearActive}`} onClick={onClear}>X</button>
+            <button type='submit' className='submit-btn'>Submit</button>
         </form>
     )
 }
