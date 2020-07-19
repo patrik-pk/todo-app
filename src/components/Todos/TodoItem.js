@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setCurrent, deleteTodo } from '../../actions/todoActions'
 
+import deleteIcon from '../../icons/delete.svg'
+import editIcon from '../../icons/edit.svg'
+
 function TodoItem({ todo, setCurrent, deleteTodo }) {
     const { task } = todo
 
@@ -16,8 +19,12 @@ function TodoItem({ todo, setCurrent, deleteTodo }) {
         <li className='todo-item'>
             <p className='task-text'>{task}</p>
             <div className='options'>
-                <button className='edit-btn' onClick={onEdit}>Edit</button>
-                <button className='delete-btn' onClick={onDelete}>Delete</button>
+                <button className='edit-btn' onClick={onEdit}>
+                    <img className='todo-icon edit-icon' alt='' src={editIcon}/>
+                </button>
+                <button className='delete-btn' onClick={onDelete}>
+                    <img className='todo-icon delete-icon' alt='' src={deleteIcon} />
+                </button>
             </div>
         </li>
     )

@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { addTodo, updateTodo, clearCurrent } from '../../actions/todoActions'
 import { v4 as uuidv4 } from 'uuid'
 
+import clearIcon from '../../icons/clear.svg'
+
 function TodoForm({ addTodo, updateTodo, current, clearCurrent }) {
     // The "current" variable is filled with the given todo
     // when the edit button is clicked
@@ -46,8 +48,12 @@ function TodoForm({ addTodo, updateTodo, current, clearCurrent }) {
         <form className='todo-form' onSubmit={onSubmit}>
             {/*<p className='add-new-text'>{current === null ? 'Add new todo' : 'Update todo'}</p>*/}
             <input className={`todo-input ${clearActive}`} type='text' value={task} onChange={onChange}/>
-            <button type='button' className={`clear-btn ${clearActive}`} onClick={onClear}>X</button>
-            <button type='submit' className='submit-btn'>Submit</button>
+            <button type='button' className={`clear-btn ${clearActive}`} onClick={onClear}>
+                <img className='clear-icon' alt='' src={clearIcon} />
+            </button>
+            <button type='submit' className='submit-btn'>
+                <p>{current ? 'Edit' : 'Submit'}</p>
+            </button>
         </form>
     )
 }
