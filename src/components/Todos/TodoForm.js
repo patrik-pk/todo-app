@@ -7,6 +7,9 @@ import { v4 as uuidv4 } from 'uuid'
 function TodoForm({ addTodo, updateTodo, current, clearCurrent }) {
     // The "current" variable is filled with the given todo
     // when the edit button is clicked
+    // So when there is something add "active" class
+    // to the input field and to the clear button
+    const clearActive = current && 'active'
 
     const [task, setTask] = useState('')
     
@@ -42,9 +45,9 @@ function TodoForm({ addTodo, updateTodo, current, clearCurrent }) {
     return (
         <form className='todo-form' onSubmit={onSubmit}>
             {/*<p className='add-new-text'>{current === null ? 'Add new todo' : 'Update todo'}</p>*/}
-            <input className='todo-input' type='text' value={task} onChange={onChange}/>
+            <input className={`todo-input ${clearActive}`} type='text' value={task} onChange={onChange}/>
+            <button className={`clear-btn ${clearActive}`} onClick={onClear}>X</button>
             <button className='submit-btn' type='submit'>Submit</button>
-            {current !== null && <button className='clear-btn' onClick={onClear}>Clear</button>}
         </form>
     )
 }

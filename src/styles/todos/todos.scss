@@ -4,7 +4,8 @@
 $input-padding-horizontal: 5px;
 $input-padding-vertical: 5px;
 
-$input-btn-width: 60px;
+$submit-btn-width: 60px;
+$clear-btn-width: 30px;
 $input-btn-ml: 5px;
 
 .todo-page {
@@ -31,17 +32,44 @@ $input-btn-ml: 5px;
             }
 
             .todo-input {
-                width: calc(100% - 2 * (#{$input-padding-horizontal} + 2px) - #{$input-btn-width} - #{$input-btn-ml});
+                // Input width is 100% of the form subscracted by 2 * (input horizontal padding + 2px for input border),
+                // the submit button width and the margin left between the input and the submit button 
+                // in order for the input to fit in nicely
+                width: calc(
+                    100% 
+                    - 2 * (#{$input-padding-horizontal} + 2px) 
+                    - #{$submit-btn-width} 
+                    - #{$input-btn-ml}
+                );
                 padding: 5px 5px;
+                &.active {
+                    // When there is something in current, the clear button is displayed,
+                    // so add its width to the substraction along with one additional margin left
+                    width: calc(
+                        100% 
+                        - 2 * (#{$input-padding-horizontal} + 2px) 
+                        - #{$clear-btn-width} 
+                        - #{$submit-btn-width} 
+                        - 2 * #{$input-btn-ml}
+                    );
+                }
             }
 
             .submit-btn, .clear-btn {
-                width: 60px;
                 padding: 6px 0;
                 margin-left: $input-btn-ml;
             }
+
+            .clear-btn {
+                width: $clear-btn-width;
+                display: none;
+                &.active {
+                    display: inline-block;
+                }
+            }
             
             .submit-btn {
+                width: $submit-btn-width;
                 background: black;
                 color: white;
             }

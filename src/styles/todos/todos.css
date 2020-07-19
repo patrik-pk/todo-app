@@ -115,17 +115,30 @@
 }
 
 .todo-page .todo-section .todo-form .todo-input {
-  width: calc(100% - 2 * (5px + 2px) - 60px - 5px);
+  width: calc( 100%  - 2 * (5px + 2px)  - 60px  - 5px);
   padding: 5px 5px;
 }
 
+.todo-page .todo-section .todo-form .todo-input.active {
+  width: calc( 100%  - 2 * (5px + 2px)  - 30px  - 60px  - 2 * 5px);
+}
+
 .todo-page .todo-section .todo-form .submit-btn, .todo-page .todo-section .todo-form .clear-btn {
-  width: 60px;
   padding: 6px 0;
   margin-left: 5px;
 }
 
+.todo-page .todo-section .todo-form .clear-btn {
+  width: 30px;
+  display: none;
+}
+
+.todo-page .todo-section .todo-form .clear-btn.active {
+  display: inline-block;
+}
+
 .todo-page .todo-section .todo-form .submit-btn {
+  width: 60px;
   background: black;
   color: white;
 }
