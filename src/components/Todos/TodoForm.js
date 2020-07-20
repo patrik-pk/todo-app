@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { addTodo, updateTodo, clearCurrent } from '../../actions/todoActions'
 import { v4 as uuidv4 } from 'uuid'
 
-import clearIcon from '../../icons/clear.svg'
+import clearIcon from '../../resources/icons/clear.svg'
 
 function TodoForm({ addTodo, updateTodo, current, clearCurrent }) {
     // The "current" variable is filled with the given todo

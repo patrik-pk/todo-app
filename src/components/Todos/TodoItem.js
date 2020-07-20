@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setCurrent, deleteTodo } from '../../actions/todoActions'
 
-import deleteIcon from '../../icons/delete.svg'
-import editIcon from '../../icons/edit.svg'
+import deleteIcon from '../../resources/icons/delete.svg'
+import editIcon from '../../resources/icons/edit.svg'
 
 function TodoItem({ todo, setCurrent, deleteTodo }) {
     const { task } = todo
