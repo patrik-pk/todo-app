@@ -17,7 +17,10 @@ function TodoItem({ todo, setCurrent, deleteTodo }) {
 
     return (
         <li className='todo-item'>
-            <p className='task-text'>{task}</p>
+            <div className='task-container'>
+                <input className='task-checkbox' type='checkbox' />
+                <p className='task-text'>{task}</p>
+            </div>
             <div className='options'>
                 <button className='edit-btn' onClick={onEdit}>
                     <img className='todo-icon edit-icon' alt='' src={editIcon}/>

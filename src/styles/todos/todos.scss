@@ -26,7 +26,12 @@ $todo-list-mt: 20px;
 // Todo Item
 $todo-padding: 10px 10px;
 $todo-mb: 10px;
+
+// Task
+$task-max-width: 60%;
+$task-ml: 10px;
 $task-font-size: 1.1rem;
+$checkbox-size: 18px;
 
 // Todo Item Buttons
 $todo-icon-size: 19px;
@@ -122,13 +127,26 @@ $todo-buttons-ml: 2px;
                     margin-bottom: 0;
                     border-bottom: 0;
                 }
-    
-                .task-text {
+
+                .task-container {
                     display: flex;
                     align-items: center;
-                    max-width: 70%;
-                    font-size: $task-font-size;
+                    width: 100%;
+
+                    .task-checkbox {
+                        width: $checkbox-size;
+                        height: $checkbox-size;
+                    }
+
+                    .task-text {
+                        display: flex;
+                        align-items: center;
+                        max-width: $task-max-width;
+                        margin-left: $task-ml;
+                        font-size: $task-font-size;
+                    }
                 }
+    
     
                 .options {
                     display: flex;

@@ -181,14 +181,30 @@
   border-bottom: 0;
 }
 
-.todo-page .todo-section .todo-list .todo-item .task-text {
+.todo-page .todo-section .todo-list .todo-item .task-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-width: 70%;
+  width: 100%;
+}
+
+.todo-page .todo-section .todo-list .todo-item .task-container .task-checkbox {
+  width: 18px;
+  height: 18px;
+}
+
+.todo-page .todo-section .todo-list .todo-item .task-container .task-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 60%;
+  margin-left: 10px;
   font-size: 1.1rem;
 }
 
