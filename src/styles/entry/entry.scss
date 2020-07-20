@@ -13,22 +13,27 @@ $submit-width: 100px;
 $submit-mt: 10px; // margin between submit and the last input
 $submit-padding: 5px 0;
 
+
+// Entry Form Container 
 .form-container {
     display: flex;
     justify-content: center;
 
+    // Entry Form
     .entry-form {
         position: relative;
         display: flex;
         flex-direction: column;
         padding-top: $form-pt;
 
+        // Entry Input - for every text input field
         .entry-input {
             width: $input-width;
             margin-bottom: $input-mb;
             padding: $input-padding;
         }
     
+        // Submit Button
         .submit-btn {
             width: $submit-width;    
             margin-top: calc(#{$submit-mt} - #{$input-mb});

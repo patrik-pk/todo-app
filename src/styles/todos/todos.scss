@@ -38,17 +38,20 @@ $todo-icon-size: 19px;
 $todo-buttons-padding: 5px;
 $todo-buttons-ml: 2px;
 
+
+// Todo Page
 .todo-page {
     display: flex;
 
     // Sidebar
     @import '../sidebar/sidebar.scss';
 
-    // Rest of the page
+    // Rest Of The Page
     .todo-section {
         width: calc(0.9 * (100vw - #{$sidebar-width}));
         margin: 0 auto;
     
+        // Current Category - The Heading Above The Todo Input Field
         .current-category {
             margin-top: $current-category-mt;
             color: $current-category-color;
@@ -56,10 +59,12 @@ $todo-buttons-ml: 2px;
             text-transform: uppercase;
         }
     
+        // Todo Form
         .todo-form {
             display: flex;
             margin-top: $todo-form-mt;
 
+            // Todo Input
             .todo-input {
                 font-size: $input-font-size;
                 // Input width is 100% of the form subscracted by 2 * (input horizontal padding + 2px for input border),
@@ -85,6 +90,7 @@ $todo-buttons-ml: 2px;
                 }
             }
 
+            // Todo Submit & Clear Buttons
             .submit-btn, .clear-btn {
                 padding: $input-btn-padding;
                 margin-left: $input-btn-ml;
@@ -114,9 +120,11 @@ $todo-buttons-ml: 2px;
             }
         }
     
+        // Todo List (ul)
         .todo-list {
             margin-top: $todo-list-mt;
     
+            // Todo Item (li)
             .todo-item {
                 display: flex;
                 justify-content: space-between;
@@ -128,16 +136,19 @@ $todo-buttons-ml: 2px;
                     border-bottom: 0;
                 }
 
+                // Task Container
                 .task-container {
                     display: flex;
                     align-items: center;
                     width: 100%;
 
+                    // Checkbox
                     .task-checkbox {
                         width: $checkbox-size;
                         height: $checkbox-size;
                     }
 
+                    // Text
                     .task-text {
                         display: flex;
                         align-items: center;
@@ -147,10 +158,11 @@ $todo-buttons-ml: 2px;
                     }
                 }
     
-    
+                // Todo Item Options
                 .options {
                     display: flex;
 
+                    // Edit & Delete Buttons
                     .edit-btn, .delete-btn {
                         display: flex;
                         justify-content: center;

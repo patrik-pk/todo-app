@@ -16,6 +16,8 @@ $link-collapsed-pl: 25px;
 // Toggler
 $toggler-size: 24px;
 
+
+// Navbar
 .navbar {
     position: relative;
     display: flex;
@@ -25,14 +27,14 @@ $toggler-size: 24px;
     background: $color-primary;
     color: white;
 
-    // LOGO (all devices)
+    // Logo (all devices)
     .logo {
         margin-left: $navbar-padding;
         color: $logo-color;
         font-weight: bold;
     }
 
-    // TOGGLE BUTTON (mobile, tablet)
+    // Toggle Button (mobile, tablet)
     .menu-toggler-container {
         display: flex;
         justify-content: center;
@@ -47,7 +49,7 @@ $toggler-size: 24px;
         }
     }
 
-    // MENU (mobile, tablet)
+    // Menu (mobile, tablet)
     .menu-collapse {
         position: absolute;
         top: $navbar_height;
@@ -68,18 +70,20 @@ $toggler-size: 24px;
         }
     }
 
-    // NAVBAR ITEMS 
+    // Navbar Items (ul)
     .navbar-items {
         display: flex;
 
+        // Navbar Item (li)
         .navbar-item {
 
+            // Navbar Link
             .link {
                 color: $link-color;
             }
         }
 
-        // EXPANDED (desktop)
+        // Expanded Navbar Items (ul, for desktop)
         &.expanded {
             display: none;
             flex-direction: row;
@@ -97,7 +101,7 @@ $toggler-size: 24px;
             }
         }
 
-        // COLLAPSED (mobile, tablet)
+        // Collapsed Navbar Items (ul, for mobile & tablet)
         &.collapsed {
             flex-direction: column;
             
@@ -118,7 +122,7 @@ $toggler-size: 24px;
         }
     }
 
-    // don't display toggle button and menu on desktop
+    // Don't display toggle button and menu on desktop
     .menu-toggler-container, .menu-collapse {
         @include desktop {
             display: none;

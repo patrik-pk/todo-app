@@ -18,12 +18,15 @@ $link-font-size: 1.1rem;
 $link-active-border-size: 5px;
 $link-active-color: $color-primary;
 
+
+// Sidebar - Put Inside TodoPage.js
 .sidebar {
     width: $sidebar-width;
     height: calc(100vh - #{$navbar-height});
     background: $sidebar-bg;
     border-right: 1px #bbb solid;
 
+    // Categories Heading
     .categories-heading {
         margin-top: $categories-heading-mt;
         padding-left: $categories-heading-pl;
@@ -33,11 +36,14 @@ $link-active-color: $color-primary;
         font-size: $categories-heading-font-size;
     }
     
+    // Categories (ul)
     .categories {
         margin-top: $categories-mt;
 
+        // Category Item (li)
         .category-item {
 
+            // Category Link
             .category-link {
                 display: block;
                 padding: $link-padding-vertical 0;
@@ -45,10 +51,13 @@ $link-active-color: $color-primary;
                 font-size: $link-font-size;
                 letter-spacing: 1px;
                 &:hover {
-                    border-left: $link-active-border-size #999 solid;
+                    border-left: $link-active-border-size #999 solid; 
+                    // Calculate padding left on hover, so that the Link 
+                    // is at the same place, when the border shows up
                     padding-left: calc(#{$link-padding-left} - #{$link-active-border-size});
                 }
                 &.active {
+                    // Same for active Link
                     padding-left: calc(#{$link-padding-left} - #{$link-active-border-size});
                     background: #eee;
                     color: $link-active-color;
