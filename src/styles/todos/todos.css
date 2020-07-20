@@ -69,7 +69,7 @@
   font-weight: lighter;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .todo-page .sidebar .categories {
@@ -80,7 +80,7 @@
   display: block;
   padding: 10px 0;
   padding-left: 30px;
-  font-size: 18px;
+  font-size: 1.1rem;
   letter-spacing: 1px;
 }
 
@@ -157,6 +157,7 @@
   width: 60px;
   background: #3dbd99;
   color: white;
+  font-size: 0.95rem;
 }
 
 .todo-page .todo-section .todo-list {

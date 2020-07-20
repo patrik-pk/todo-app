@@ -16,6 +16,7 @@ $input-font-size: 1rem;
 $clear-btn-width: 36px;
 $clear-icon-size: 14px;
 $submit-btn-width: 60px;
+$submit-font-size: 0.95rem;
 $input-btn-ml: 5px;
 $input-btn-padding: 6px 0;
 
@@ -104,6 +105,7 @@ $todo-buttons-ml: 2px;
                 width: $submit-btn-width;
                 background: $color-primary;
                 color: white;
+                font-size: $submit-font-size;
             }
         }
     

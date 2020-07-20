@@ -1,12 +1,17 @@
 @import '../_global/style.scss';
 
-$submit-width: 100px;
-$input-width: 300px;
+// Form
+$form-pt: 100px;
 
+// Input
+$input-width: 300px;
+$input-mb: 10px; // margin between inputs
 $input-padding: 5px;
 
-$input-margin: 10px; // margin between inputs
-$submit-margin: 10px; // margin between submit and the last input
+// Submit
+$submit-width: 100px;
+$submit-mt: 10px; // margin between submit and the last input
+$submit-padding: 5px 0;
 
 .form-container {
     display: flex;
@@ -16,19 +21,20 @@ $submit-margin: 10px; // margin between submit and the last input
         position: relative;
         display: flex;
         flex-direction: column;
-        padding-top: 100px;
+        padding-top: $form-pt;
 
         .entry-input {
             width: $input-width;
-            margin-bottom: 10px;
+            margin-bottom: $input-mb;
             padding: $input-padding;
         }
     
         .submit-btn {
-            width: $submit-width;
-            margin-top: calc(#{$submit-margin} - #{$input-margin});
+            width: $submit-width;    
+            margin-top: calc(#{$submit-mt} - #{$input-mb});
+            // Put submit on the right manually
             margin-left: calc(#{$input-width} - #{$submit-width + #{$input-padding}} * 2);
-            padding: 5px 0;
+            padding: $submit-padding;
             transition: 500ms all;
             &:hover {
                 color: white;

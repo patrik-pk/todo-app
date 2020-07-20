@@ -1,27 +1,40 @@
 @import '../_global/style.scss';
 
+// Sidebar
+$sidebar-bg: #eee;
+
+// Categories Heading
+$categories-heading-mt: 20px;
+$categories-heading-pl: 20px;
+$categories-heading-font-size: 1rem;
+
+// Categories
+$categories-mt: 15px;
+
 // Category item
 $link-padding-left: 30px;
 $link-padding-vertical: 10px;
-$active-border-size: 5px;
+$link-font-size: 1.1rem;
+$link-active-border-size: 5px;
+$link-active-color: $color-primary;
 
 .sidebar {
     width: $sidebar-width;
     height: calc(100vh - #{$navbar-height});
-    background: #eee;
+    background: $sidebar-bg;
     border-right: 1px #bbb solid;
 
     .categories-heading {
-        margin-top: 20px;
-        padding-left: 20px;
+        margin-top: $categories-heading-mt;
+        padding-left: $categories-heading-pl;
         font-weight: lighter;
         text-transform: uppercase;
         letter-spacing: 1px;
-        font-size: 16px;
+        font-size: $categories-heading-font-size;
     }
     
     .categories {
-        margin-top: 15px;
+        margin-top: $categories-mt;
 
         .category-item {
 
@@ -29,17 +42,17 @@ $active-border-size: 5px;
                 display: block;
                 padding: $link-padding-vertical 0;
                 padding-left: $link-padding-left;
-                font-size: 18px;
+                font-size: $link-font-size;
                 letter-spacing: 1px;
                 &:hover {
-                    border-left: $active-border-size #999 solid;
-                    padding-left: calc(#{$link-padding-left} - #{$active-border-size});
+                    border-left: $link-active-border-size #999 solid;
+                    padding-left: calc(#{$link-padding-left} - #{$link-active-border-size});
                 }
                 &.active {
-                    padding-left: calc(#{$link-padding-left} - #{$active-border-size});
+                    padding-left: calc(#{$link-padding-left} - #{$link-active-border-size});
                     background: #eee;
-                    color: #3dbd99;
-                    border-left: $active-border-size $color-primary solid;
+                    color: $link-active-color;
+                    border-left: $link-active-border-size $color-primary solid;
                 }
             }
         }

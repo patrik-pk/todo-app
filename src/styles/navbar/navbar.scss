@@ -1,9 +1,20 @@
 
 @import '../_global/style.scss';
 
-$toggler-size: 24px;
-
+// Navbar
 $navbar-padding: 10px; // for logo & expanded navbar items
+
+// Logo
+$logo-color: white;
+
+// Links
+$link-color: white;
+$link-expanded-ml: 10px;
+$link-collapsed-height: 50px;
+$link-collapsed-pl: 25px;
+
+// Toggler
+$toggler-size: 24px;
 
 .navbar {
     position: relative;
@@ -17,7 +28,7 @@ $navbar-padding: 10px; // for logo & expanded navbar items
     // LOGO (all devices)
     .logo {
         margin-left: $navbar-padding;
-        color: white;
+        color: $logo-color;
         font-weight: bold;
     }
 
@@ -64,7 +75,7 @@ $navbar-padding: 10px; // for logo & expanded navbar items
         .navbar-item {
 
             .link {
-                color: white;
+                color: $link-color;
             }
         }
 
@@ -75,7 +86,7 @@ $navbar-padding: 10px; // for logo & expanded navbar items
             margin-right: $navbar-padding;
 
             .navbar-item {
-                margin-left: 10px;
+                margin-left: $link-expanded-ml;
                 &:first-child {
                     margin-left: 0;
                 }
@@ -96,11 +107,11 @@ $navbar-padding: 10px; // for logo & expanded navbar items
                     display: flex;
                     align-items: center;
                     width: 100%;
-                    height: 50px;
+                    height: $link-collapsed-height;
                     border-bottom: 1px white solid;
 
                     .link-value {
-                        padding-left: 25px;
+                        padding-left: $link-collapsed-pl;
                     }
                 }
             }
