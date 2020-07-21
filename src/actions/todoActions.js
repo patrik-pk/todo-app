@@ -1,6 +1,7 @@
 import {
     ADD_CATEGORY,
     DELETE_CATEGORY,
+    SET_ACTIVE_CATEGORY,
     ADD_TODO,
     CHECK_TODO,
     UPDATE_TODO,
@@ -18,6 +19,11 @@ export const addCategory = (category) => ({
 
 export const deleteCategory = () => ({
     type: DELETE_CATEGORY
+})
+
+export const setActiveCategory = (category) => ({
+    type: SET_ACTIVE_CATEGORY,
+    payload: category
 })
 
 // TODOS

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { addCategory } from '../../actions/todoActions'
 import { connect } from 'react-redux'
+import { v4 as uuidv4 } from 'uuid'
 import SidebarItem from './SidebarItem'
 import plusIcon from '../../resources/icons/plus.svg'
 import minusIcon from '../../resources/icons/minus.svg'
@@ -16,7 +17,12 @@ function Sidebar({ categories, addCategory }) {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        addCategory({ value: newCategory, isActive: false })
+        addCategory({
+            id: uuidv4(), 
+            linkTo: `/todos/${newCategory}`,
+            value: newCategory, 
+            isActive: false
+        })
         setNewCategory('')
     }
 
@@ -47,14 +53,12 @@ function Sidebar({ categories, addCategory }) {
                 <button className='category-submit-btn' type='submit'>Add</button>
             </form>
             <ul className='categories'>
-                {categories.map((category, id) => {
-                    return <SidebarItem
-                        key={id} 
-                        linkTo={`/todos/${category.value}`} 
-                        value={category.value.charAt(0).toUpperCase() + category.value.slice(1)}
-                        isActive={category.isActive}
-                    />
-                })}
+                {categories.map(category => <SidebarItem 
+                    key={category.id} 
+                    // If I pass in "category={category}", SidebarItem.js doesn't update
+                    // when isActive is changed. Haven't figured this out yet.
+                    category={{...category, isActive: category.isActive}} 
+                />)}
             </ul>
         </div>
     )

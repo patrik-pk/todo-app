@@ -1,6 +1,7 @@
 import {
     ADD_CATEGORY,
     DELETE_CATEGORY,
+    SET_ACTIVE_CATEGORY,
     ADD_TODO,
     CHECK_TODO,
     UPDATE_TODO,
@@ -11,9 +12,24 @@ import {
 
 const initialState = {
     categories: [
-        { value: 'work', isActive: true },
-        { value: 'exercise', isActive: false },
-        { value: 'hobby', isActive: false }
+        { 
+            id: '222-222-222',
+            linkTo: '/todos/work',
+            value: 'work', 
+            isActive: true 
+        },
+        { 
+            id: '333-333-333',
+            linkTo: '/todos/exercise',
+            value: 'exercise', 
+            isActive: false 
+        },
+        { 
+            id: '444-444-444',
+            linkTo: '/todos/hobby',
+            value: 'hobby', 
+            isActive: false 
+        }
     ],
     todos: [
         { 
@@ -55,6 +71,19 @@ export default (state = initialState, action) => {
         case DELETE_CATEGORY:
             console.log('delete category')
             return state
+        case SET_ACTIVE_CATEGORY:
+            return {
+                ...state,
+                categories: state.categories.map(category => {
+                    if(category.id === action.payload.id) {
+                        category.isActive = true
+                        return category
+                    } else if(category.isActive) {
+                        category.isActive = false
+                        return category
+                    } else return category
+                })
+            }
         // TODOS
         case ADD_TODO:
             // Simply add Todo from payload
@@ -82,9 +111,8 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 todos: state.todos.map(todo => {
-                    if(todo.id === action.payload.id) {
-                        return action.payload
-                    } else return todo
+                    if(todo.id === action.payload.id) return action.payload
+                    else return todo
                 })
             }
         case DELETE_TODO:
