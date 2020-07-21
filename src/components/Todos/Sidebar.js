@@ -16,7 +16,7 @@ function Sidebar({ categories, addCategory }) {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        addCategory(newCategory)
+        addCategory({ value: newCategory, isActive: false })
         setNewCategory('')
     }
 
@@ -47,8 +47,14 @@ function Sidebar({ categories, addCategory }) {
                 <button className='category-submit-btn' type='submit'>Add</button>
             </form>
             <ul className='categories'>
-                <SidebarItem linkTo={'/todos/work'} value={'Work'} isActive={true} />
-                <SidebarItem linkTo={'/todos/exercise'} value={'Exercise'} isActive={false} />
+                {categories.map((category, id) => {
+                    return <SidebarItem
+                        key={id} 
+                        linkTo={`/todos/${category.value}`} 
+                        value={category.value.charAt(0).toUpperCase() + category.value.slice(1)}
+                        isActive={category.isActive}
+                    />
+                })}
             </ul>
         </div>
     )

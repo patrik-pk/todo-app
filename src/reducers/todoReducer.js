@@ -11,8 +11,9 @@ import {
 
 const initialState = {
     categories: [
-        'work',
-        'exercise'
+        { value: 'work', isActive: true },
+        { value: 'exercise', isActive: false },
+        { value: 'hobby', isActive: false }
     ],
     todos: [
         { 
