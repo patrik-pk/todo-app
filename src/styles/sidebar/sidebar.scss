@@ -1,12 +1,14 @@
 @import '../_global/style.scss';
 
 // Sidebar
-$sidebar-bg: #eee;
+$sidebar-bg: white;
 
-// Categories Heading
-$categories-heading-mt: 20px;
-$categories-heading-pl: 20px;
+// Categories Top
+$categories-top-mt: 20px;
+$categories-top-padding-horizontal: 15px;
 $categories-heading-font-size: 1rem;
+$add-btn-padding: 5px;
+$add-icon-size: 26px;
 
 // Categories
 $categories-mt: 15px;
@@ -26,14 +28,43 @@ $link-active-color: $color-primary;
     background: $sidebar-bg;
     border-right: 1px #bbb solid;
 
-    // Categories Heading
-    .categories-heading {
-        margin-top: $categories-heading-mt;
-        padding-left: $categories-heading-pl;
-        font-weight: lighter;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: $categories-heading-font-size;
+    // Categories Top
+    .categories-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: $categories-top-mt;
+        padding: 0 $categories-top-padding-horizontal;
+
+        // Categories Heading
+        .categories-heading {
+            font-weight: lighter;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: $categories-heading-font-size;
+        }
+
+        // New Category Button
+        .new-category-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            padding: $add-btn-padding;
+
+            .category-btn-icon {
+                width: $add-icon-size;
+                height: $add-icon-size;
+            }
+        }
+    }
+
+    // Category Form - For New Category
+    .category-form {
+        display: none;
+        &.active {
+            display: block;
+        }
     }
     
     // Categories (ul)
@@ -50,16 +81,16 @@ $link-active-color: $color-primary;
                 padding-left: $link-padding-left;
                 font-size: $link-font-size;
                 letter-spacing: 1px;
-                &:hover {
-                    border-left: $link-active-border-size #999 solid; 
-                    // Calculate padding left on hover, so that the Link 
-                    // is at the same place, when the border shows up
-                    padding-left: calc(#{$link-padding-left} - #{$link-active-border-size});
+                // Hover on links that are not active
+                &:not(.active):hover {
+                    background: #eee; 
+                    //border-left: $link-active-border-size #eee solid;
+                    //padding-left: calc(#{$link-padding-left} - #{$link-active-border-size});
                 }
                 &.active {
-                    // Same for active Link
+                    // Calculate padding left on active, so that the Link 
+                    // is at the same place, when the border shows up
                     padding-left: calc(#{$link-padding-left} - #{$link-active-border-size});
-                    background: #eee;
                     color: $link-active-color;
                     border-left: $link-active-border-size $color-primary solid;
                 }

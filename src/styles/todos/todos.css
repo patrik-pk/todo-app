@@ -59,17 +59,56 @@
 .todo-page .sidebar {
   width: 300px;
   height: calc(100vh - 50px);
-  background: #eee;
+  background: white;
   border-right: 1px #bbb solid;
 }
 
-.todo-page .sidebar .categories-heading {
+.todo-page .sidebar .categories-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 20px;
-  padding-left: 20px;
+  padding: 0 15px;
+}
+
+.todo-page .sidebar .categories-top .categories-heading {
   font-weight: lighter;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 1rem;
+}
+
+.todo-page .sidebar .categories-top .new-category-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: white;
+  padding: 5px;
+}
+
+.todo-page .sidebar .categories-top .new-category-btn .category-btn-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.todo-page .sidebar .category-form {
+  display: none;
+}
+
+.todo-page .sidebar .category-form.active {
+  display: block;
 }
 
 .todo-page .sidebar .categories {
@@ -84,14 +123,12 @@
   letter-spacing: 1px;
 }
 
-.todo-page .sidebar .categories .category-item .category-link:hover {
-  border-left: 5px #999 solid;
-  padding-left: calc(30px - 5px);
+.todo-page .sidebar .categories .category-item .category-link:not(.active):hover {
+  background: #eee;
 }
 
 .todo-page .sidebar .categories .category-item .category-link.active {
   padding-left: calc(30px - 5px);
-  background: #eee;
   color: #3dbd99;
   border-left: 5px #3dbd99 solid;
 }
