@@ -8,7 +8,9 @@ import plusIcon from '../../resources/icons/plus.svg'
 import minusIcon from '../../resources/icons/minus.svg'
 
 function Sidebar({ categories, addCategory }) {
+    // isActive is used for the show/hide form button
     const [isActive, setActive] = useState(false)
+    // newCategory is used for the input value
     const [newCategory, setNewCategory] = useState('')
 
     const onChange = (e) => {
@@ -24,18 +26,19 @@ function Sidebar({ categories, addCategory }) {
             isActive: false
         })
         setNewCategory('')
+        setActive(false)
     }
 
     return (
         <div className='sidebar'>
             <div className='categories-top'>
                 <h3 className='categories-heading'>Categories</h3>
-                {
+                { // If it's active, show the Minus button
                 isActive ?
                 <button className='new-category-btn' onClick={() => setActive(false)}>
                     <img className='category-btn-icon' alt='' src={minusIcon} />
                 </button>
-                :
+                : // If not, show the Plus button
                 <button className='new-category-btn' onClick={() => setActive(true)}>
                     <img className='category-btn-icon' alt='' src={plusIcon}/>
                 </button>
@@ -53,6 +56,7 @@ function Sidebar({ categories, addCategory }) {
                 <button className='category-submit-btn' type='submit'>Add</button>
             </form>
             <ul className='categories'>
+                { /* Mapped Categories */ }
                 {categories.map(category => <SidebarItem 
                     key={category.id + category.isActive.toString()} 
                     // Key is equal to combination of id and isActive boolean,

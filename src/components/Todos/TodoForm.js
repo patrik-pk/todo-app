@@ -61,6 +61,7 @@ function TodoForm({ addTodo, updateTodo, current, clearCurrent }) {
                 value={task} 
                 onChange={onChange} 
                 placeholder='Add new Todo'
+                autoFocus
                 required 
             />
             <button className={`clear-btn ${clearActive}`} type='button' onClick={onClear} >
