@@ -22,6 +22,7 @@
   border: 0;
   cursor: pointer;
   padding: 5px 10px;
+  outline: none;
 }
 
 .sidebar {
@@ -73,10 +74,23 @@
 
 .sidebar .category-form {
   display: none;
+  margin-top: 5px;
+  padding-left: 15px;
 }
 
 .sidebar .category-form.active {
   display: block;
+}
+
+.sidebar .category-form .category-input {
+  padding: 5px;
+}
+
+.sidebar .category-form .category-submit-btn {
+  margin-left: 5px;
+  padding: 7px 7px;
+  background: #3dbd99;
+  color: white;
 }
 
 .sidebar .categories {

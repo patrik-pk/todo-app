@@ -18,9 +18,14 @@
   list-style: none;
 }
 
+* input {
+  outline: 0;
+}
+
 * button {
   border: 0;
   cursor: pointer;
   padding: 5px 10px;
+  outline: none;
 }
 /*# sourceMappingURL=style.css.map */

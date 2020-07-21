@@ -5,13 +5,19 @@ $sidebar-bg: white;
 
 // Categories Top
 $categories-top-mt: 20px;
-$categories-top-padding-horizontal: 15px;
 $categories-heading-font-size: 1rem;
 $add-btn-padding: 5px;
 $add-icon-size: 26px;
 
+// Category Form
+$category-form-mt: 5px;
+$submit-btn-ml: 5px;
+$submit-btn-padding: 7px 7px;
+$input-padding: 5px;
+
 // Categories
 $categories-mt: 15px;
+$categories-padding-horizontal: 15px;
 
 // Category item
 $link-padding-left: 30px;
@@ -34,7 +40,7 @@ $link-active-color: $color-primary;
         justify-content: space-between;
         align-items: center;
         margin-top: $categories-top-mt;
-        padding: 0 $categories-top-padding-horizontal;
+        padding: 0 $categories-padding-horizontal;
 
         // Categories Heading
         .categories-heading {
@@ -44,7 +50,7 @@ $link-active-color: $color-primary;
             font-size: $categories-heading-font-size;
         }
 
-        // New Category Button
+        // New Category Button (Plus, Minus)
         .new-category-btn {
             display: flex;
             justify-content: center;
@@ -62,8 +68,21 @@ $link-active-color: $color-primary;
     // Category Form - For New Category
     .category-form {
         display: none;
+        margin-top: $category-form-mt;
+        padding-left: $categories-padding-horizontal;
         &.active {
             display: block;
+        }
+
+        .category-input {
+            padding: $input-padding;
+        }
+
+        .category-submit-btn {
+            margin-left: $submit-btn-ml;
+            padding: $submit-btn-padding;
+            background: $color-primary;
+            color: white;
         }
     }
     
