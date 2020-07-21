@@ -1,4 +1,6 @@
 import {
+    ADD_CATEGORY,
+    DELETE_CATEGORY,
     ADD_TODO,
     CHECK_TODO,
     UPDATE_TODO,
@@ -8,21 +10,34 @@ import {
 } from '../actions/types'
 
 const initialState = {
+    categories: [
+        'work',
+        'exercise'
+    ],
     todos: [
         { 
             id: '123-456-789',
+            category: 'work',
             task: 'Clean room', 
             isCompleted: true, 
         },
         { 
             id: '123-456-781',
-            task: 'Wash the dishes', 
+            task: 'Wash the dishes',
+            category: 'work', 
             isCompleted: false, 
         },
         { 
             id: '123-456-782',
-            task: 'Go for a walk', 
+            task: 'Go for a walk',
+            category: 'work', 
             isCompleted: false, 
+        },
+        {
+            id: '123-777-782',
+            task: 'Fullbody Gym Workout',
+            category: 'exercise',
+            isCompleted: false,
         }
     ],
     current: null
@@ -30,6 +45,16 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch(action.type) {
+        // CATEGORIES
+        case ADD_CATEGORY:
+            return {
+                ...state,
+                categories: [...state.categories, action.payload]
+            }
+        case DELETE_CATEGORY:
+            console.log('delete category')
+            return state
+        // TODOS
         case ADD_TODO:
             // Simply add Todo from payload
             return {
@@ -68,6 +93,7 @@ export default (state = initialState, action) => {
                 ...state,
                 todos: state.todos.filter(todo => todo.id !== action.payload.id)
             }
+        // CURRENT
         case SET_CURRENT:
             // Simply set current from payload
             return {

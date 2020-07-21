@@ -1,4 +1,6 @@
 import {
+    ADD_CATEGORY,
+    DELETE_CATEGORY,
     ADD_TODO,
     CHECK_TODO,
     UPDATE_TODO,
@@ -6,6 +8,19 @@ import {
     SET_CURRENT,
     CLEAR_CURRENT
 } from './types'
+
+// CATEGORIES
+
+export const addCategory = (category) => ({
+    type: ADD_CATEGORY,
+    payload: category
+})
+
+export const deleteCategory = () => ({
+    type: DELETE_CATEGORY
+})
+
+// TODOS
 
 export const addTodo = (todo) => ({
     type: ADD_TODO,
@@ -26,6 +41,8 @@ export const deleteTodo = (todo) => ({
     type: DELETE_TODO,
     payload: todo
 })
+
+// CURRENT
 
 export const setCurrent = (todo) => ({
     type: SET_CURRENT,

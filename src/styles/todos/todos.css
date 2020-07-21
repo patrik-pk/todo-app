@@ -18,6 +18,10 @@
   list-style: none;
 }
 
+* input {
+  outline: 0;
+}
+
 * button {
   border: 0;
   cursor: pointer;
@@ -49,6 +53,10 @@
 
 .todo-page * li {
   list-style: none;
+}
+
+.todo-page * input {
+  outline: 0;
 }
 
 .todo-page * button {

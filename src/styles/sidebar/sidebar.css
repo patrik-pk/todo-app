@@ -18,6 +18,10 @@
   list-style: none;
 }
 
+* input {
+  outline: 0;
+}
+
 * button {
   border: 0;
   cursor: pointer;

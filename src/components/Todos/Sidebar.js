@@ -1,12 +1,24 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import { addCategory } from '../../actions/todoActions'
+import { connect } from 'react-redux'
 import SidebarItem from './SidebarItem'
 import plusIcon from '../../resources/icons/plus.svg'
 import minusIcon from '../../resources/icons/minus.svg'
 
-export default function Sidebar() {
+function Sidebar({ categories, addCategory }) {
     const [isActive, setActive] = useState(false)
+    const [newCategory, setNewCategory] = useState('')
 
-    const onSubmit = () => console.log('hi new category')
+    const onChange = (e) => {
+        setNewCategory(e.target.value)
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+        addCategory(newCategory)
+        setNewCategory('')
+    }
 
     return (
         <div className='sidebar'>
@@ -23,14 +35,16 @@ export default function Sidebar() {
                 </button>
                 }
             </div>
-            <form className={`category-form ${isActive && 'active'}`}>
+            <form className={`category-form ${isActive && 'active'}`} onSubmit={onSubmit}>
                 <input
                     className='category-input'
                     type='text'
                     placeholder='Add new category'
+                    onChange={onChange}
+                    value={newCategory}
                     required 
                 />
-                <button className='category-submit-btn' type='submit' onClick={onSubmit}>Add</button>
+                <button className='category-submit-btn' type='submit'>Add</button>
             </form>
             <ul className='categories'>
                 <SidebarItem linkTo={'/todos/work'} value={'Work'} isActive={true} />
@@ -39,3 +53,14 @@ export default function Sidebar() {
         </div>
     )
 }
+
+const mapStateToProps = state => ({
+    categories: state.todo.categories
+})
+
+Sidebar.propTypes = {
+    categories: PropTypes.array.isRequired,
+    addCategory: PropTypes.func.isRequired,
+}
+
+export default connect(mapStateToProps, { addCategory })(Sidebar)
