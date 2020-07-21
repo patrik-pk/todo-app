@@ -22,31 +22,31 @@ export default function Register() {
         <div className='form-container'>
             <form className='entry-form register' onSubmit={onSubmit}>
                 <input
-                    required
                     className='entry-input entry-name'
                     type='text'
                     name='name'
                     placeholder='Name'
                     value={name}
                     onChange={onChange}
+                    required
                 />
                 <input
-                    required
                     className='entry-input entry-password'
                     type='password'
                     name='password'
                     placeholder='Password'
                     value={password}
                     onChange={onChange}
+                    required
                 />
                 <input
-                    required
                     className='entry-input entry-password2'
                     type='password'
                     name='password2'
                     placeholder='Confirm Password'
                     value={password2}
                     onChange={onChange}
+                    required
                 />
                 <button type='submit' className='submit-btn'>Register</button>
             </form>

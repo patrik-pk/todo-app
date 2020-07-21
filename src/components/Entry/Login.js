@@ -21,22 +21,22 @@ export default function Login() {
         <div className='form-container'>
             <form className='entry-form login' onSubmit={onSubmit}>
                 <input 
-                    required 
                     className='entry-input entry-name' 
                     type='text' 
                     name='name' 
                     placeholder='Name'
                     value={name} 
                     onChange={onChange}
+                    required 
                 />
                 <input 
-                    required 
                     className='entry-input entry-password' 
                     type='password' 
                     name='password'
                     placeholder='Password' 
                     value={password} 
                     onChange={onChange}
+                    required 
                 />
                 <button type='submit' className='submit-btn'>Login</button>
             </form>

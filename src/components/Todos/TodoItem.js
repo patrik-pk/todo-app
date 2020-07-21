@@ -1,24 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { setCurrent, deleteTodo } from '../../actions/todoActions'
+import { checkTodo, setCurrent, deleteTodo } from '../../actions/todoActions'
 
 import deleteIcon from '../../resources/icons/delete.svg'
 import editIcon from '../../resources/icons/edit.svg'
 
-function TodoItem({ todo, setCurrent, deleteTodo }) {
-    const { task } = todo
+function TodoItem({ todo, checkTodo, setCurrent, deleteTodo }) {
+    const { task, isCompleted } = todo
 
-    // Delete Todo
-    const onDelete = () => deleteTodo(todo)
+    // Check Todo
+    const onCheck = () => checkTodo(todo)
 
     // Edit Todo
     const onEdit = () => setCurrent(todo)
 
+    // Delete Todo
+    const onDelete = () => deleteTodo(todo)
+
     return (
-        <li className='todo-item'>
+        <li className={`todo-item ${isCompleted && 'completed'}`}>
             <div className='task-container'>
-                <input className='task-checkbox' type='checkbox' />
+                <input 
+                    className='task-checkbox' 
+                    type='checkbox' 
+                    checked={isCompleted} 
+                    onChange={onCheck}
+                />
                 <p className='task-text'>{task}</p>
             </div>
             <div className='options'>
@@ -35,8 +43,9 @@ function TodoItem({ todo, setCurrent, deleteTodo }) {
 
 TodoItem.propTypes = {
     todo: PropTypes.object.isRequired,
+    checkTodo: PropTypes.func.isRequired,
     setCurrent: PropTypes.func.isRequired,
     deleteTodo: PropTypes.func.isRequired
 }
 
-export default connect(null, { setCurrent, deleteTodo })(TodoItem)
+export default connect(null, { checkTodo, setCurrent, deleteTodo })(TodoItem)

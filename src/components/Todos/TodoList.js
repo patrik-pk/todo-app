@@ -8,7 +8,14 @@ function TodoList({ todos }) {
         <ul className='todo-list'>
             { // If there are todos, map them
             todos.length > 0 ?
-            todos.map(todo => <TodoItem key={todo.id} todo={todo}/>)
+            todos.map(todo => {
+                return <TodoItem 
+                    key={todo.id} 
+                    // If I pass in "todo={todo}", TodoItem.js doesn't update
+                    // when isCompleted is changed. Haven't figured this out yet.
+                    todo={{ ...todo, isCompleted: todo.isCompleted }} 
+                />
+            }) 
             :
             // If not, return this
             <p>No todo items</p>

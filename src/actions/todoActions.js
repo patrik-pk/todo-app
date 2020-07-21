@@ -1,5 +1,6 @@
 import {
     ADD_TODO,
+    CHECK_TODO,
     UPDATE_TODO,
     DELETE_TODO,
     SET_CURRENT,
@@ -8,6 +9,11 @@ import {
 
 export const addTodo = (todo) => ({
     type: ADD_TODO,
+    payload: todo
+})
+
+export const checkTodo = (todo) => ({
+    type: CHECK_TODO,
     payload: todo
 })
 

@@ -34,11 +34,19 @@ function TodoForm({ addTodo, updateTodo, current, clearCurrent }) {
         e.preventDefault()
         // If there is no current, make new Todo
         if(current === null) {
-            addTodo({ task, id: uuidv4() })
+            addTodo({ 
+                id: uuidv4(), 
+                task,
+                isCompleted: false 
+            })
             setTask('')
         // If there is one, update the given Todo
         } else {
-            updateTodo({ task, id: current.id })
+            updateTodo({ 
+                id: current.id, 
+                task, 
+                isCompleted: current.isCompleted
+            })
             clearCurrent()
             setTask('')
         }
@@ -47,8 +55,15 @@ function TodoForm({ addTodo, updateTodo, current, clearCurrent }) {
     return (
         <form className='todo-form' onSubmit={onSubmit}>
             {/*<p className='add-new-text'>{current === null ? 'Add new todo' : 'Update todo'}</p>*/}
-            <input className={`todo-input ${clearActive}`} type='text' value={task} onChange={onChange}/>
-            <button type='button' className={`clear-btn ${clearActive}`} onClick={onClear}>
+            <input 
+                className={`todo-input ${clearActive}`} 
+                type='text' 
+                value={task} 
+                onChange={onChange} 
+                placeholder='Add new Todo'
+                required 
+            />
+            <button className={`clear-btn ${clearActive}`} type='button' onClick={onClear} >
                 <img className='clear-icon' alt='' src={clearIcon} />
             </button>
             <button type='submit' className='submit-btn'>

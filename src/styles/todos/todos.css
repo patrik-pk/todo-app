@@ -181,6 +181,10 @@
   border-bottom: 0;
 }
 
+.todo-page .todo-section .todo-list .todo-item.completed .task-text {
+  font-style: italic;
+}
+
 .todo-page .todo-section .todo-list .todo-item .task-container {
   display: -webkit-box;
   display: -ms-flexbox;

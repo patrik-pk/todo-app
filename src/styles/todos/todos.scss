@@ -135,6 +135,12 @@ $todo-buttons-ml: 2px;
                     margin-bottom: 0;
                     border-bottom: 0;
                 }
+                // Completed Todo Item (li)
+                &.completed {
+                    .task-text {
+                        font-style: italic;
+                    }
+                }
 
                 // Task Container
                 .task-container {
