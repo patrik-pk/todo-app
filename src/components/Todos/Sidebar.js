@@ -54,10 +54,11 @@ function Sidebar({ categories, addCategory }) {
             </form>
             <ul className='categories'>
                 {categories.map(category => <SidebarItem 
-                    key={category.id} 
-                    // If I pass in "category={category}", SidebarItem.js doesn't update
-                    // when isActive is changed. Haven't figured this out yet.
-                    category={{...category, isActive: category.isActive}} 
+                    key={category.id + category.isActive.toString()} 
+                    // Key is equal to combination of id and isActive boolean,
+                    // this way the Component rerenders when isActive value is changed.
+                    // Seems weird to me, but it works. :-)
+                    category={category} 
                 />)}
             </ul>
         </div>

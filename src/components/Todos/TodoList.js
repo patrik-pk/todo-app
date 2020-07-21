@@ -10,10 +10,11 @@ function TodoList({ todos }) {
             todos.length > 0 ?
             todos.map(todo => {
                 return <TodoItem 
-                    key={todo.id} 
-                    // If I pass in "todo={todo}", TodoItem.js doesn't update
-                    // when isCompleted is changed. Haven't figured this out yet.
-                    todo={{ ...todo, isCompleted: todo.isCompleted }} 
+                    // Key is equal to combination of id and isCompleted boolean,
+                    // this way the Component rerenders when isCompleted value is changed.
+                    // Seems weird to me, but it works. :-)
+                    key={todo.id + todo.isCompleted.toString()} 
+                    todo={todo} 
                 />
             }) 
             :
