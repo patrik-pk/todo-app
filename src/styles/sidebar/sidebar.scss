@@ -19,12 +19,13 @@ $input-padding: 5px;
 $categories-mt: 15px;
 $categories-padding-horizontal: 15px;
 
-// Category item
+// Category Item
 $link-padding-left: 30px;
 $link-padding-vertical: 10px;
+$link-height: 40px;
 $link-font-size: 1.1rem;
-$link-active-border-size: 5px;
-$link-active-color: $color-primary;
+$delete-icon-right: 15px;
+$delete-icon-size: 18px;
 
 
 // Sidebar - Put Inside TodoPage.js
@@ -92,26 +93,65 @@ $link-active-color: $color-primary;
 
         // Category Item (li)
         .category-item {
+            position: relative;
 
             // Category Link
             .category-link {
-                display: block;
-                padding: $link-padding-vertical 0;
+                display: flex;
+                align-items: center;
+                height: $link-height;
                 padding-left: $link-padding-left;
                 font-size: $link-font-size;
                 letter-spacing: 1px;
-                // Hover on links that are not active
-                &:not(.active):hover {
-                    background: #eee; 
-                    //border-left: $link-active-border-size #eee solid;
-                    //padding-left: calc(#{$link-padding-left} - #{$link-active-border-size});
+                cursor: default;
+            }
+
+            // Delete Category Button
+            .category-delete-btn {
+                position: absolute;
+                top: 0;
+                right: $delete-icon-right;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                width: $link-height;
+                height: $link-height;
+                background: transparent;
+                
+                .delete-icon {
+                    width: $delete-icon-size;
+                    height: $delete-icon-size;
                 }
-                &.active {
+            }
+
+            // Item Not Active
+            &:not(.active) {
+                // Hover on links that are not active
+                .category-link:hover {
+                    background: #eee; 
+                }
+            }
+
+            // Item Active
+            &.active {
+                .category-link {
                     // Calculate padding left on active, so that the Link 
                     // is at the same place, when the border shows up
-                    padding-left: calc(#{$link-padding-left} - #{$link-active-border-size});
-                    color: $link-active-color;
-                    border-left: $link-active-border-size $color-primary solid;
+                    background: $color-primary;
+                    color: white;
+                }
+
+                .category-delete-btn {
+                    .delete-icon {
+                        filter: invert(68%) sepia(9%) saturate(2460%) hue-rotate(112deg) brightness(93%) contrast(87%);
+                    }
+                }
+            }
+
+            // Item Hover
+            &:hover {
+                .category-delete-btn {
+                    display: flex;
                 }
             }
         }

@@ -138,22 +138,63 @@
   margin-top: 15px;
 }
 
+.todo-page .sidebar .categories .category-item {
+  position: relative;
+}
+
 .todo-page .sidebar .categories .category-item .category-link {
-  display: block;
-  padding: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
   padding-left: 30px;
   font-size: 1.1rem;
   letter-spacing: 1px;
+  cursor: default;
 }
 
-.todo-page .sidebar .categories .category-item .category-link:not(.active):hover {
+.todo-page .sidebar .categories .category-item .category-delete-btn {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+}
+
+.todo-page .sidebar .categories .category-item .category-delete-btn .delete-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.todo-page .sidebar .categories .category-item:not(.active) .category-link:hover {
   background: #eee;
 }
 
-.todo-page .sidebar .categories .category-item .category-link.active {
-  padding-left: calc(30px - 5px);
-  color: #3dbd99;
-  border-left: 5px #3dbd99 solid;
+.todo-page .sidebar .categories .category-item.active .category-link {
+  background: #3dbd99;
+  color: white;
+}
+
+.todo-page .sidebar .categories .category-item.active .category-delete-btn .delete-icon {
+  -webkit-filter: invert(68%) sepia(9%) saturate(2460%) hue-rotate(112deg) brightness(93%) contrast(87%);
+          filter: invert(68%) sepia(9%) saturate(2460%) hue-rotate(112deg) brightness(93%) contrast(87%);
+}
+
+.todo-page .sidebar .categories .category-item:hover .category-delete-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .todo-page .todo-section {
