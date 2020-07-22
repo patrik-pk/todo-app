@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { addCategory, showCategoryForm } from '../../actions/todoActions'
 import { v4 as uuidv4 } from 'uuid'
+import plusIcon from '../../resources/icons/plus.svg'
 
 function SidebarForm({ formActive, showCategoryForm, addCategory }) {
     // newCategory is used for the input value
@@ -32,7 +33,9 @@ function SidebarForm({ formActive, showCategoryForm, addCategory }) {
                 value={newCategory}
                 required
             />
-            <button className='category-submit-btn' type='submit'>Add</button>
+            <button className='category-submit-btn' type='submit'>
+                <img className='icon' alt='' src={plusIcon} />
+            </button>
         </form>
     )
 }
@@ -43,7 +46,6 @@ const mapStateToProps = state => ({
 
 SidebarForm.propTypes = {
     addCategory: PropTypes.func.isRequired,
-    isActive: PropTypes.bool.isRequired,
     formActive: PropTypes.bool.isRequired,
 }
 

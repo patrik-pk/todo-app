@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { showCategoryForm } from '../../actions/todoActions'
@@ -10,7 +10,7 @@ import minusIcon from '../../resources/icons/minus.svg'
 function Sidebar({ categories, formActive, showCategoryForm }) {
     return (
         <div className='sidebar'>
-            <div className='categories-top'>
+            <div className={`categories-top ${formActive ? 'active' : ''}`}>
                 <h3 className='categories-heading'>Categories</h3>
                 { // If it's active, show the Minus button
                 formActive ?

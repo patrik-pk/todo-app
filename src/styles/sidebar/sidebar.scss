@@ -5,19 +5,19 @@ $sidebar-bg: white;
 
 // Categories Top
 $categories-top-mt: 20px;
+$categories-top-mb: 15px;
+$categories-top-padding-horizontal: 15px;
 $categories-heading-font-size: 1rem;
-$add-btn-padding: 5px;
-$add-icon-size: 26px;
+$add-icon-size: 16px; // for both plus & minus
+
+// Buttons
+$btn-padding-vertical: 7px;
+$btn-width: 30px;
 
 // Category Form
-$category-form-mt: 5px;
-$submit-btn-ml: 5px;
-$submit-btn-padding: 7px 7px;
+$form-padding-vertical: 10px;
+$submit-ml: 5px;
 $input-padding: 5px;
-
-// Categories
-$categories-mt: 15px;
-$categories-padding-horizontal: 15px;
 
 // Category Item
 $link-padding-left: 30px;
@@ -41,7 +41,11 @@ $category-option-size: 18px;
         justify-content: space-between;
         align-items: center;
         margin-top: $categories-top-mt;
-        padding: 0 $categories-padding-horizontal;
+        margin-bottom: $categories-top-mb;
+        padding: 0 $categories-top-padding-horizontal;
+        &.active {
+            margin-bottom: 0;
+        }
 
         // Categories Heading
         .categories-heading {
@@ -56,8 +60,9 @@ $category-option-size: 18px;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: white;
-            padding: $add-btn-padding;
+            width: $btn-width;
+            padding: $btn-padding-vertical 0;
+            background: $color-primary;
 
             .category-btn-icon {
                 width: $add-icon-size;
@@ -69,27 +74,44 @@ $category-option-size: 18px;
     // Category Form - For New Category
     .category-form {
         display: none;
-        margin-top: $category-form-mt;
-        padding-left: $categories-padding-horizontal;
+        padding: $form-padding-vertical 0;
+        padding-left: $categories-top-padding-horizontal;
         &.active {
-            display: block;
+            display: flex;
         }
 
         .category-input {
+            // calculate width so that it fits in nicely
+            width: calc( 
+                #{$sidebar-width}
+                - #{$categories-top-padding-horizontal} * 2
+                - #{$input-padding} * 2
+                - #{$submit-ml}
+                - #{$btn-width}
+                - 2px * 2
+            ); // those 2px * 2 are for input outline
             padding: $input-padding;
         }
 
         .category-submit-btn {
-            margin-left: $submit-btn-ml;
-            padding: $submit-btn-padding;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: $btn-width;
+            margin-left: $submit-ml;
+            padding: $btn-padding-vertical 0;
             background: $color-primary;
             color: white;
+
+            .icon {
+                width: $add-icon-size;
+                height: $add-icon-size;
+            }
         }
     }
     
     // Categories (ul)
     .categories {
-        margin-top: $categories-mt;
 
         // Category Item (li)
         .category-item {
