@@ -1,4 +1,5 @@
 import {
+    SHOW_CATEGORY_FORM,
     ADD_CATEGORY,
     DELETE_CATEGORY,
     SET_ACTIVE_CATEGORY,
@@ -57,12 +58,18 @@ const initialState = {
             isCompleted: false,
         }
     ],
-    current: null
+    current: null,
+    categoryFormShown: false
 }
 
 export default (state = initialState, action) => {
     switch(action.type) {
         // CATEGORIES
+        case SHOW_CATEGORY_FORM:
+            return {
+                ...state,
+                categoryFormShown: action.payload
+            }
         case ADD_CATEGORY:
             return {
                 ...state,

@@ -1,4 +1,5 @@
 import {
+    SHOW_CATEGORY_FORM,
     ADD_CATEGORY,
     DELETE_CATEGORY,
     SET_ACTIVE_CATEGORY,
@@ -11,6 +12,11 @@ import {
 } from './types'
 
 // CATEGORIES
+
+export const showCategoryForm = (bool) => ({
+    type: SHOW_CATEGORY_FORM,
+    payload: bool
+})
 
 export const addCategory = (category) => ({
     type: ADD_CATEGORY,

@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { addCategory } from '../../actions/todoActions'
+import { addCategory, showCategoryForm } from '../../actions/todoActions'
 import { v4 as uuidv4 } from 'uuid'
 
-function SidebarForm({ isActive, addCategory }) {
+function SidebarForm({ formActive, showCategoryForm, addCategory }) {
     // newCategory is used for the input value
     const [newCategory, setNewCategory] = useState('')
 
-    const onChange = (e) => {
-        setNewCategory(e.target.value)
-    }
+    const onChange = (e) => setNewCategory(e.target.value)
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -21,11 +19,11 @@ function SidebarForm({ isActive, addCategory }) {
             isActive: false
         })
         setNewCategory('')
-        //setActive(false)
+        showCategoryForm(false)
     }
 
     return (
-        <form className={`category-form ${isActive ? 'active' : ''}`} onSubmit={onSubmit}>
+        <form className={`category-form ${formActive ? 'active' : ''}`} onSubmit={onSubmit}>
             <input
                 className='category-input'
                 type='text'
@@ -39,9 +37,14 @@ function SidebarForm({ isActive, addCategory }) {
     )
 }
 
+const mapStateToProps = state => ({
+    formActive: state.todo.categoryFormShown
+})
+
 SidebarForm.propTypes = {
     addCategory: PropTypes.func.isRequired,
     isActive: PropTypes.bool.isRequired,
+    formActive: PropTypes.bool.isRequired,
 }
 
-export default connect(null, { addCategory })(SidebarForm)
+export default connect(mapStateToProps, { showCategoryForm, addCategory })(SidebarForm)
