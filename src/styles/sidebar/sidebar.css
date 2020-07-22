@@ -105,7 +105,7 @@
   position: relative;
 }
 
-.sidebar .categories .category-item .category-link {
+.sidebar .categories .category-item .link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -119,10 +119,16 @@
   cursor: default;
 }
 
-.sidebar .categories .category-item .category-delete-btn {
+.sidebar .categories .category-item .options {
   position: absolute;
   top: 0;
-  right: 15px;
+  right: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sidebar .categories .category-item .options .delete-btn, .sidebar .categories .category-item .options .edit-btn {
   display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -130,33 +136,33 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 40px;
+  width: 30px;
   height: 40px;
   background: transparent;
 }
 
-.sidebar .categories .category-item .category-delete-btn .delete-icon {
+.sidebar .categories .category-item .options .delete-btn .icon, .sidebar .categories .category-item .options .edit-btn .icon {
   width: 18px;
   height: 18px;
 }
 
-.sidebar .categories .category-item:not(.active) .category-link:hover {
+.sidebar .categories .category-item:not(.active) .link:hover {
   background: #eee;
 }
 
-.sidebar .categories .category-item.active .category-link {
+.sidebar .categories .category-item.active .link {
   background: #3dbd99;
   color: white;
 }
 
-.sidebar .categories .category-item.active .category-delete-btn .delete-icon {
-  -webkit-filter: invert(68%) sepia(9%) saturate(2460%) hue-rotate(112deg) brightness(93%) contrast(87%);
-          filter: invert(68%) sepia(9%) saturate(2460%) hue-rotate(112deg) brightness(93%) contrast(87%);
-}
-
-.sidebar .categories .category-item:hover .category-delete-btn {
+.sidebar .categories .category-item.active .delete-btn, .sidebar .categories .category-item.active .edit-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.sidebar .categories .category-item.active .delete-btn .icon, .sidebar .categories .category-item.active .edit-btn .icon {
+  -webkit-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+          filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 }
 /*# sourceMappingURL=sidebar.css.map */

@@ -44,7 +44,7 @@ function Sidebar({ categories, addCategory }) {
                 </button>
                 }
             </div>
-            <form className={`category-form ${isActive && 'active'}`} onSubmit={onSubmit}>
+            <form className={`category-form ${isActive ? 'active' : ''}`} onSubmit={onSubmit}>
                 <input
                     className='category-input'
                     type='text'

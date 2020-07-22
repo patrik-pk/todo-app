@@ -21,11 +21,11 @@ $categories-padding-horizontal: 15px;
 
 // Category Item
 $link-padding-left: 30px;
-$link-padding-vertical: 10px;
 $link-height: 40px;
 $link-font-size: 1.1rem;
-$delete-icon-right: 15px;
-$delete-icon-size: 18px;
+$category-btn-width: 30px;
+$category-options-right: 18px;
+$category-option-size: 18px;
 
 
 // Sidebar - Put Inside TodoPage.js
@@ -96,7 +96,7 @@ $delete-icon-size: 18px;
             position: relative;
 
             // Category Link
-            .category-link {
+            .link {
                 display: flex;
                 align-items: center;
                 height: $link-height;
@@ -106,52 +106,48 @@ $delete-icon-size: 18px;
                 cursor: default;
             }
 
-            // Delete Category Button
-            .category-delete-btn {
+            // Category Options
+            .options {
                 position: absolute;
                 top: 0;
-                right: $delete-icon-right;
-                display: none;
-                justify-content: center;
-                align-items: center;
-                width: $link-height;
-                height: $link-height;
-                background: transparent;
-                
-                .delete-icon {
-                    width: $delete-icon-size;
-                    height: $delete-icon-size;
+                right: $category-options-right;
+                display: flex;
+
+                .delete-btn, .edit-btn {
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    width: $category-btn-width;
+                    height: $link-height;
+                    background: transparent;
+                    
+                    .icon {
+                        width: $category-option-size;
+                        height: $category-option-size;
+                    }
                 }
             }
 
             // Item Not Active
             &:not(.active) {
                 // Hover on links that are not active
-                .category-link:hover {
+                .link:hover {
                     background: #eee; 
                 }
             }
 
             // Item Active
             &.active {
-                .category-link {
-                    // Calculate padding left on active, so that the Link 
-                    // is at the same place, when the border shows up
+                .link {
                     background: $color-primary;
                     color: white;
                 }
 
-                .category-delete-btn {
-                    .delete-icon {
-                        filter: invert(68%) sepia(9%) saturate(2460%) hue-rotate(112deg) brightness(93%) contrast(87%);
-                    }
-                }
-            }
-
-            // Item Hover
-            &:hover {
-                .category-delete-btn {
+                .delete-btn, .edit-btn {
                     display: flex;
+                    .icon {
+                        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+                    }
                 }
             }
         }
