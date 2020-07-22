@@ -1,33 +1,14 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { addCategory } from '../../actions/todoActions'
 import { connect } from 'react-redux'
-import { v4 as uuidv4 } from 'uuid'
 import SidebarItem from './SidebarItem'
+import SidebarForm from './SidebarForm'
 import plusIcon from '../../resources/icons/plus.svg'
 import minusIcon from '../../resources/icons/minus.svg'
 
-function Sidebar({ categories, addCategory }) {
+function Sidebar({ categories }) {
     // isActive is used for the show/hide form button
     const [isActive, setActive] = useState(false)
-    // newCategory is used for the input value
-    const [newCategory, setNewCategory] = useState('')
-
-    const onChange = (e) => {
-        setNewCategory(e.target.value)
-    }
-
-    const onSubmit = (e) => {
-        e.preventDefault()
-        addCategory({
-            id: uuidv4(), 
-            linkTo: `/todos/${newCategory}`,
-            value: newCategory, 
-            isActive: false
-        })
-        setNewCategory('')
-        setActive(false)
-    }
 
     return (
         <div className='sidebar'>
@@ -44,17 +25,7 @@ function Sidebar({ categories, addCategory }) {
                 </button>
                 }
             </div>
-            <form className={`category-form ${isActive ? 'active' : ''}`} onSubmit={onSubmit}>
-                <input
-                    className='category-input'
-                    type='text'
-                    placeholder='Add new category'
-                    onChange={onChange}
-                    value={newCategory}
-                    required 
-                />
-                <button className='category-submit-btn' type='submit'>Add</button>
-            </form>
+            <SidebarForm isActive={isActive} />
             <ul className='categories'>
                 { /* Mapped Categories */ }
                 {categories.map(category => <SidebarItem 
@@ -75,7 +46,6 @@ const mapStateToProps = state => ({
 
 Sidebar.propTypes = {
     categories: PropTypes.array.isRequired,
-    addCategory: PropTypes.func.isRequired,
 }
 
-export default connect(mapStateToProps, { addCategory })(Sidebar)
+export default connect(mapStateToProps)(Sidebar)
