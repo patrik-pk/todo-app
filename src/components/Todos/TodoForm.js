@@ -54,7 +54,6 @@ function TodoForm({ addTodo, updateTodo, current, clearCurrent }) {
 
     return (
         <form className='todo-form' onSubmit={onSubmit}>
-            {/*<p className='add-new-text'>{current === null ? 'Add new todo' : 'Update todo'}</p>*/}
             <input 
                 className={`todo-input ${clearActive}`} 
                 type='text' 

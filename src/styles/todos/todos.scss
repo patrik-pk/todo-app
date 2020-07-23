@@ -55,8 +55,16 @@ $todo-buttons-ml: 2px;
         .current-category {
             margin-top: $current-category-mt;
             color: $current-category-color;
-            font-weight: lighter;
-            text-transform: uppercase;
+            font-weight: normal;
+            font-style: italic;
+            color: #555;
+            
+            span.curr-cat {
+                margin-left: 3px;
+                color: $color-primary;
+                font-weight: bold;
+                font-style: normal;
+            }
         }
     
         // Todo Form

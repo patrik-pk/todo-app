@@ -234,8 +234,16 @@
 .todo-page .todo-section .current-category {
   margin-top: 20px;
   color: black;
-  font-weight: lighter;
-  text-transform: uppercase;
+  font-weight: normal;
+  font-style: italic;
+  color: #555;
+}
+
+.todo-page .todo-section .current-category span.curr-cat {
+  margin-left: 3px;
+  color: #3dbd99;
+  font-weight: bold;
+  font-style: normal;
 }
 
 .todo-page .todo-section .todo-form {
