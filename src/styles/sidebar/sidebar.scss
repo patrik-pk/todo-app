@@ -4,9 +4,9 @@
 $sidebar-bg: white;
 
 // Categories Top
-$categories-top-mt: 20px;
-$categories-top-mb: 15px;
 $categories-top-padding-horizontal: 15px;
+$categories-top-padding-top: 20px;
+$categories-top-padding-bottom: 15px;
 $categories-heading-font-size: 1rem;
 $add-icon-size: 16px; // for both plus & minus
 
@@ -40,19 +40,21 @@ $category-option-size: 18px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: $categories-top-mt;
-        margin-bottom: $categories-top-mb;
-        padding: 0 $categories-top-padding-horizontal;
+        padding: $categories-top-padding-top 
+                 $categories-top-padding-horizontal
+                 $categories-top-padding-bottom
+                 $categories-top-padding-horizontal;
+        color: $color-primary;
         &.active {
-            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
         // Categories Heading
         .categories-heading {
-            font-weight: lighter;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: $categories-heading-font-size;
+            font-weight: normal;
         }
 
         // New Category Button (Plus, Minus)
@@ -112,6 +114,7 @@ $category-option-size: 18px;
     
     // Categories (ul)
     .categories {
+        border-top: 1px #bbb solid;
 
         // Category Item (li)
         .category-item {

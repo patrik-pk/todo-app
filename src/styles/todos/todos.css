@@ -83,20 +83,19 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 20px;
-  margin-bottom: 15px;
-  padding: 0 15px;
+  padding: 20px 15px 15px 15px;
+  color: #3dbd99;
 }
 
 .todo-page .sidebar .categories-top.active {
-  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .todo-page .sidebar .categories-top .categories-heading {
-  font-weight: lighter;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 1rem;
+  font-weight: normal;
 }
 
 .todo-page .sidebar .categories-top .new-category-btn {
@@ -156,6 +155,10 @@
 .todo-page .sidebar .category-form .category-submit-btn .icon {
   width: 16px;
   height: 16px;
+}
+
+.todo-page .sidebar .categories {
+  border-top: 1px #bbb solid;
 }
 
 .todo-page .sidebar .categories .category-item {
