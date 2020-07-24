@@ -66,19 +66,26 @@ export default (state = initialState, action) => {
     switch(action.type) {
         // CATEGORIES
         case SHOW_CATEGORY_FORM:
+            // Set categoryFormShown to true / false depending on the payload
             return {
                 ...state,
                 categoryFormShown: action.payload
             }
         case ADD_CATEGORY:
+            // Simply add new category from payload
             return {
                 ...state,
                 categories: [...state.categories, action.payload]
             }
         case DELETE_CATEGORY:
-            console.log('delete category')
-            return state
+            // Filter out the category that matches payload id
+            return {
+                ...state,
+                categories: state.categories.filter(category => category.id !== action.payload.id)
+            }
         case SET_ACTIVE_CATEGORY:
+            // Set category from payload to active,
+            // unset current active category and return the rest
             return {
                 ...state,
                 categories: state.categories.map(category => {
@@ -88,7 +95,7 @@ export default (state = initialState, action) => {
                     } else if(category.isActive) {
                         category.isActive = false
                         return category
-                    } else return category
+                    } else return category  
                 })
             }
         // TODOS

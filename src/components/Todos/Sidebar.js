@@ -25,14 +25,17 @@ function Sidebar({ categories, formActive, showCategoryForm }) {
             </div>
             <SidebarForm />
             <ul className='categories'>
-                { /* Mapped Categories */ }
-                {categories.map(category => <SidebarItem 
-                    key={category.id + category.isActive.toString()} 
-                    // Key is equal to combination of id and isActive boolean,
-                    // this way the Component rerenders when isActive value is changed.
-                    // Seems weird to me, but it works. :-)
-                    category={category} 
-                />)}
+                { // Map categories if the array isn't empty
+                categories.length > 0 ?
+                    categories.map(category => <SidebarItem 
+                        // Key is equal to combination of id and isActive boolean,
+                        // this way the Component rerenders when isActive value is changed.
+                        // Seems weird to me, but it works. :-)
+                        key={category.id + category.isActive.toString()} 
+                        category={category}
+                    />)
+                : null
+                }
             </ul>
         </div>
     )

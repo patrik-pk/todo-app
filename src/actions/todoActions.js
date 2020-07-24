@@ -23,8 +23,9 @@ export const addCategory = (category) => ({
     payload: category
 })
 
-export const deleteCategory = () => ({
-    type: DELETE_CATEGORY
+export const deleteCategory = (category) => ({
+    type: DELETE_CATEGORY,
+    payload: category
 })
 
 export const setActiveCategory = (category) => ({

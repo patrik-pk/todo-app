@@ -20,12 +20,18 @@ function TodoPage({ categories }) {
         <div className='todo-page'>
             <Sidebar />
             <div className='todo-section'>
-                <h3 className='current-category'>
-                    Currently in: 
-                    <span className="curr-cat">{getCurrentCategory(categories)}</span>
-                </h3>
-                <TodoForm />
-                <TodoList />
+                { // If categories isn't empty, render todos
+                categories.length > 0 ?
+                <React.Fragment>
+                    <h3 className='current-category'>
+                        Currently in: 
+                        <span className="curr-cat">{getCurrentCategory(categories)}</span>
+                    </h3>
+                    <TodoForm />
+                    <TodoList />
+                </React.Fragment>
+                : 'No categories'
+                }
             </div>
         </div>
     )
