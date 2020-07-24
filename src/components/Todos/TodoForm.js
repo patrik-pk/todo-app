@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { addTodo, updateTodo, clearCurrent } from '../../actions/todoActions'
+import { addTodo, updateTodo, clearCurrentTodo } from '../../actions/todoActions'
 import { v4 as uuidv4 } from 'uuid'
-
 import clearIcon from '../../resources/icons/clear.svg'
 
-function TodoForm({ addTodo, updateTodo, current, clearCurrent }) {
+function TodoForm({ addTodo, updateTodo, current, clearCurrentTodo }) {
     // The "current" variable is filled with the given todo
     // when the edit button is clicked
     // So when there is something add "active" class
@@ -22,7 +21,7 @@ function TodoForm({ addTodo, updateTodo, current, clearCurrent }) {
 
     // Clear current
     const onClear = () => {
-        clearCurrent()
+        clearCurrentTodo()
         setTask('')
     }
 
@@ -47,7 +46,7 @@ function TodoForm({ addTodo, updateTodo, current, clearCurrent }) {
                 task, 
                 isCompleted: current.isCompleted
             })
-            clearCurrent()
+            clearCurrentTodo()
             setTask('')
         }
     }
@@ -82,7 +81,7 @@ TodoForm.propTypes = {
     todos: PropTypes.array.isRequired,
     addTodo: PropTypes.func.isRequired,
     updateTodo: PropTypes.func.isRequired,
-    clearCurrent: PropTypes.func.isRequired
+    clearCurrentTodo: PropTypes.func.isRequired
 }
 
-export default connect(mapStateToProps, { addTodo, updateTodo, clearCurrent })(TodoForm)
+export default connect(mapStateToProps, { addTodo, updateTodo, clearCurrentTodo })(TodoForm)

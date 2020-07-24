@@ -16,7 +16,7 @@ $btn-width: 30px;
 
 // Category Form
 $form-padding-vertical: 10px;
-$submit-ml: 5px;
+$form-btn-ml: 5px;
 $input-padding: 5px;
 
 // Category Item
@@ -88,19 +88,30 @@ $category-option-size: 18px;
                 #{$sidebar-width}
                 - #{$categories-top-padding-horizontal} * 2
                 - #{$input-padding} * 2
-                - #{$submit-ml}
+                - #{$form-btn-ml}
                 - #{$btn-width}
                 - 2px * 2
             ); // those 2px * 2 are for input outline
             padding: $input-padding;
+            &.active {
+            // if clear is active, recalculate input width
+            width: calc( 
+                #{$sidebar-width}
+                - #{$categories-top-padding-horizontal} * 2
+                - #{$input-padding} * 2
+                - #{$form-btn-ml} * 2
+                - #{$btn-width} * 2
+                - 2px * 2
+            );
+            }
         }
 
-        .category-submit-btn {
+        .category-submit-btn, .category-clear-btn {
             display: flex;
             justify-content: center;
             align-items: center;
             width: $btn-width;
-            margin-left: $submit-ml;
+            margin-left: $form-btn-ml;
             padding: $btn-padding-vertical 0;
             background: $color-primary;
             color: white;
@@ -109,6 +120,10 @@ $category-option-size: 18px;
                 width: $add-icon-size;
                 height: $add-icon-size;
             }
+        }
+
+        .category-clear-btn {
+            background: black;
         }
     }
     

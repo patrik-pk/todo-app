@@ -1,14 +1,17 @@
 import {
     SHOW_CATEGORY_FORM,
     ADD_CATEGORY,
+    UPDATE_CATEGORY,
     DELETE_CATEGORY,
     SET_ACTIVE_CATEGORY,
     ADD_TODO,
     CHECK_TODO,
     UPDATE_TODO,
     DELETE_TODO,
-    SET_CURRENT,
-    CLEAR_CURRENT
+    SET_CURRENT_TODO,
+    CLEAR_CURRENT_TODO,
+    SET_CURRENT_CATEGORY,
+    CLEAR_CURRENT_CATEGORY
 } from '../actions/types'
 
 const initialState = {
@@ -59,6 +62,7 @@ const initialState = {
         }
     ],
     current: null,
+    currentCategory: null,
     categoryFormShown: false
 }
 
@@ -76,6 +80,17 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 categories: [...state.categories, action.payload]
+            }
+        case UPDATE_CATEGORY:
+            // Map categories, if id matches the payload id,
+            // return the Category from payload,
+            // else don't do anything and return Category
+            return {
+                ...state,
+                categories: state.categories.map(category => {
+                    if(category.id === action.payload.id) return action.payload 
+                    else return category
+                })
             }
         case DELETE_CATEGORY:
             // Filter out the category that matches payload id
@@ -97,6 +112,17 @@ export default (state = initialState, action) => {
                         return category
                     } else return category  
                 })
+            }
+        // CURRENT CATEGORY
+        case SET_CURRENT_CATEGORY:
+            return {
+                ...state,
+                currentCategory: action.payload
+            }
+        case CLEAR_CURRENT_CATEGORY:
+            return {
+                ...state,
+                currentCategory: null
             }
         // TODOS
         case ADD_TODO:
@@ -136,14 +162,14 @@ export default (state = initialState, action) => {
                 ...state,
                 todos: state.todos.filter(todo => todo.id !== action.payload.id)
             }
-        // CURRENT
-        case SET_CURRENT:
+        // CURRENT TODO
+        case SET_CURRENT_TODO:
             // Simply set current from payload
             return {
                 ...state,
                 current: action.payload
             }
-        case CLEAR_CURRENT:
+        case CLEAR_CURRENT_TODO:
             // Even more simply set current to null
             return {
                 ...state,

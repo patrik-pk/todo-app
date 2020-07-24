@@ -135,7 +135,11 @@
   padding: 5px;
 }
 
-.todo-page .sidebar .category-form .category-submit-btn {
+.todo-page .sidebar .category-form .category-input.active {
+  width: calc(  300px - 15px * 2 - 5px * 2 - 5px * 2 - 30px * 2 - 2px * 2);
+}
+
+.todo-page .sidebar .category-form .category-submit-btn, .todo-page .sidebar .category-form .category-clear-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -152,9 +156,13 @@
   color: white;
 }
 
-.todo-page .sidebar .category-form .category-submit-btn .icon {
+.todo-page .sidebar .category-form .category-submit-btn .icon, .todo-page .sidebar .category-form .category-clear-btn .icon {
   width: 16px;
   height: 16px;
+}
+
+.todo-page .sidebar .category-form .category-clear-btn {
+  background: black;
 }
 
 .todo-page .sidebar .categories {

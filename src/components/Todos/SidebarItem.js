@@ -2,16 +2,19 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { setActiveCategory, deleteCategory } from '../../actions/todoActions'
+import { setActiveCategory, setCurrentCategory, deleteCategory, showCategoryForm } from '../../actions/todoActions'
 import editIcon from '../../resources/icons/edit.svg'
 import deleteIcon from '../../resources/icons/delete.svg'
 
-function SidebarItem({ category, categories, setActiveCategory, deleteCategory }) {
+function SidebarItem({ category, categories, setActiveCategory, setCurrentCategory, deleteCategory, showCategoryForm }) {
     const { linkTo, value, isActive } = category
 
     const onClick = () => setActiveCategory(category)
 
-    const onEdit = () => console.log('edit')
+    const onEdit = () => {
+        setCurrentCategory(category)
+        showCategoryForm(true)
+    }
 
     const onDelete = () => {
         // Delete category
@@ -52,7 +55,9 @@ SidebarItem.propTypes = {
     category: PropTypes.object.isRequired,
     categories: PropTypes.array.isRequired,
     setActiveCategory: PropTypes.func.isRequired,
+    setCurrentCategory: PropTypes.func.isRequired,
     deleteCategory: PropTypes.func.isRequired,
+    showCategoryForm: PropTypes.func.isRequired,
 }
 
-export default connect(mapStateToProps, { setActiveCategory, deleteCategory })(SidebarItem)
+export default connect(mapStateToProps, { setActiveCategory, setCurrentCategory, deleteCategory, showCategoryForm })(SidebarItem)
