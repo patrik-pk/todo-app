@@ -2,17 +2,34 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { addCategory, showCategoryForm, setActiveCategory, clearCurrentCategory, updateCategory } from '../../actions/todoActions'
+import { 
+    addCategory, 
+    showCategoryForm, 
+    setActiveCategory, 
+    clearCurrentCategory, 
+    updateCategory 
+} from '../../actions/todoActions'
 import { v4 as uuidv4 } from 'uuid'
 import plusIcon from '../../resources/icons/plus.svg'
 import clearIcon from '../../resources/icons/clear.svg'
 
-function SidebarForm({ formActive, categories, currentCategory, clearCurrentCategory, updateCategory, showCategoryForm, addCategory, setActiveCategory }) {
+function SidebarForm(props) {
+    // Pull out from props
+    const { 
+        formActive, 
+        categories, 
+        currentCategory, 
+        clearCurrentCategory, 
+        updateCategory, 
+        showCategoryForm, 
+        addCategory, 
+        setActiveCategory 
+    } = props
+    
     const history = useHistory()
     const [categoryInput, setCategoryInput] = useState('')
 
-    const onChange = (e) => setCategoryInput(e.target.value)
-
+    // Watch for currentCategory change
     useEffect(() => {
         // Set input value to current, if there is one 
         if (currentCategory !== null) {
@@ -31,21 +48,28 @@ function SidebarForm({ formActive, categories, currentCategory, clearCurrentCate
         return filtered.length > 0 ? true : false 
     }
 
+    // On Change
+    const onChange = (e) => setCategoryInput(e.target.value)
+
+    // On Clear
     const onClear = () => {
         clearCurrentCategory()
         setCategoryInput('')
     }
 
+    // On Submit
     const onSubmit = (e) => {
         e.preventDefault()
-        // If current category exists, update Category
+
+        // If current category exists, UPDATE Category
         if(currentCategory !== null) {
-            // If category already exists
+            // If category with same value already exists
             if (categoryExists(categories)) {
                 // Add warning box in the future
                 console.log(`Category ${categoryInput} already exists.`)
             } // If it doesn't, update one 
-            updateCategory({
+            
+            updateCategory({ // update category
                 id: currentCategory.id,
                 linkTo: `/todos/${categoryInput}`,
                 value: categoryInput,
@@ -54,9 +78,10 @@ function SidebarForm({ formActive, categories, currentCategory, clearCurrentCate
             clearCurrentCategory() // clear current category
             setCategoryInput('') // clear input field
         }
-        // If it doesn't, make new Category 
+
+        // If it doesn't, CREATE Category 
         else {
-            // If category already exists
+            // If category with same value already exists
             if(categoryExists(categories)) {
                 // Add warning box in the future
                 console.log(`Category ${categoryInput} already exists.`)
@@ -64,8 +89,8 @@ function SidebarForm({ formActive, categories, currentCategory, clearCurrentCate
             else {
                 const id = uuidv4()
                 const linkTo = `/todos/${categoryInput}`
-                // Create new category
-                addCategory({
+
+                addCategory({ // create new category
                     id,
                     linkTo,
                     value: categoryInput,
@@ -118,4 +143,10 @@ SidebarForm.propTypes = {
     categories: PropTypes.array.isRequired,
 }
 
-export default connect(mapStateToProps, { showCategoryForm, addCategory, setActiveCategory, clearCurrentCategory, updateCategory })(SidebarForm)
+export default connect(mapStateToProps, { 
+    showCategoryForm, 
+    addCategory, 
+    setActiveCategory, 
+    clearCurrentCategory, 
+    updateCategory 
+})(SidebarForm)
