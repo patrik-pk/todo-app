@@ -5,20 +5,20 @@ import { addTodo, updateTodo, clearCurrentTodo } from '../../actions/todoActions
 import { v4 as uuidv4 } from 'uuid'
 import clearIcon from '../../resources/icons/clear.svg'
 
-function TodoForm({ addTodo, updateTodo, current, clearCurrentTodo, categories }) {
+function TodoForm({ addTodo, updateTodo, currentTodo, clearCurrentTodo, categories }) {
     // The "current" variable is filled with the given todo
     // when the edit button is clicked
     // So when there is something add "active" class
     // to the input field and to the clear button
-    const clearActive = current && 'active'
+    const clearActive = currentTodo ? 'active' : ''
 
     const [task, setTask] = useState('')
     
     // Watch current
     useEffect(() => {
         // Set input value to current, if there is one 
-        if(current !== null) setTask(current.task)
-    }, [current])
+        if(currentTodo !== null) setTask(currentTodo.task)
+    }, [currentTodo])
 
     // Get Active Category
     const getActiveCategory = categories => {
@@ -39,7 +39,7 @@ function TodoForm({ addTodo, updateTodo, current, clearCurrentTodo, categories }
     const onSubmit = (e) => {
         e.preventDefault()
         // If there is no current, make new Todo
-        if(current === null) {
+        if(currentTodo === null) {
             addTodo({ 
                 id: uuidv4(), 
                 task,
@@ -50,10 +50,10 @@ function TodoForm({ addTodo, updateTodo, current, clearCurrentTodo, categories }
         // If there is one, update the given Todo
         } else {
             updateTodo({ 
-                id: current.id, 
+                id: currentTodo.id, 
                 task, 
                 category: getActiveCategory(categories),
-                isCompleted: current.isCompleted
+                isCompleted: currentTodo.isCompleted
             })
             clearCurrentTodo()
             setTask('')
@@ -75,7 +75,7 @@ function TodoForm({ addTodo, updateTodo, current, clearCurrentTodo, categories }
                 <img className='clear-icon' alt='' src={clearIcon} />
             </button>
             <button type='submit' className='submit-btn'>
-                <p>{current ? 'Edit' : 'Submit'}</p>
+                <p>{currentTodo ? 'Edit' : 'Submit'}</p>
             </button>
         </form>
     )
@@ -83,8 +83,8 @@ function TodoForm({ addTodo, updateTodo, current, clearCurrentTodo, categories }
 
 const mapStateToProps = state => ({
     todos: state.todo.todos,
-    current: state.todo.current,
-    categories: state.todo.categories
+    currentTodo: state.todo.currentTodo,
+    categories: state.category.categories
 })
 
 TodoForm.propTypes = {

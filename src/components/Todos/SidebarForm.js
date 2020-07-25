@@ -7,7 +7,7 @@ import {
     setActiveCategory, 
     clearCurrentCategory, 
     updateCategory 
-} from '../../actions/todoActions'
+} from '../../actions/categoryActions'
 import { v4 as uuidv4 } from 'uuid'
 import plusIcon from '../../resources/icons/plus.svg'
 import clearIcon from '../../resources/icons/clear.svg'
@@ -122,9 +122,9 @@ function SidebarForm(props) {
 }
 
 const mapStateToProps = state => ({
-    formActive: state.todo.categoryFormShown,
-    categories: state.todo.categories,
-    currentCategory: state.todo.currentCategory
+    formActive: state.category.categoryFormShown,
+    categories: state.category.categories,
+    currentCategory: state.category.currentCategory
 })
 
 SidebarForm.propTypes = {

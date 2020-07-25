@@ -1,20 +1,38 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { setActiveCategory, setCurrentCategory, deleteCategory, showCategoryForm } from '../../actions/todoActions'
+import { 
+    setActiveCategory, 
+    setCurrentCategory, 
+    deleteCategory, 
+    showCategoryForm 
+} from '../../actions/categoryActions'
 import editIcon from '../../resources/icons/edit.svg'
 import deleteIcon from '../../resources/icons/delete.svg'
 
-function SidebarItem({ category, categories, setActiveCategory, setCurrentCategory, deleteCategory, showCategoryForm }) {
+function SidebarItem(props) {
+    // Pull out from props
+    const { 
+        category, 
+        categories, 
+        setActiveCategory, 
+        setCurrentCategory, 
+        deleteCategory, 
+        showCategoryForm 
+    } = props
+
     const { value, isActive } = category
 
+    // On Click
     const onClick = () => setActiveCategory(category)
 
+    // On Edit
     const onEdit = () => {
         setCurrentCategory(category)
         showCategoryForm(true)
     }
 
+    // On Delete
     const onDelete = () => {
         // Delete category
         deleteCategory(category)
@@ -43,7 +61,7 @@ function SidebarItem({ category, categories, setActiveCategory, setCurrentCatego
 }
 
 const mapStateToProps = state => ({
-    categories: state.todo.categories 
+    categories: state.category.categories 
 })
 
 SidebarItem.propTypes = {

@@ -45,7 +45,7 @@ function TodoList({ todos, categories }) {
 
 const mapStateToProps = (state) => ({
     todos: state.todo.todos,
-    categories: state.todo.categories
+    categories: state.category.categories
 })
 
 TodoList.propTypes = {

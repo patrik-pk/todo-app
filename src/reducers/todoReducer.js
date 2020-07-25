@@ -1,37 +1,13 @@
 import {
-    SHOW_CATEGORY_FORM,
-    ADD_CATEGORY,
-    UPDATE_CATEGORY,
-    DELETE_CATEGORY,
-    SET_ACTIVE_CATEGORY,
     ADD_TODO,
     CHECK_TODO,
     UPDATE_TODO,
     DELETE_TODO,
     SET_CURRENT_TODO,
     CLEAR_CURRENT_TODO,
-    SET_CURRENT_CATEGORY,
-    CLEAR_CURRENT_CATEGORY
 } from '../actions/types'
 
 const initialState = {
-    categories: [
-        { 
-            id: '222-222-222',
-            value: 'work', 
-            isActive: true 
-        },
-        { 
-            id: '333-333-333',
-            value: 'exercise', 
-            isActive: false 
-        },
-        { 
-            id: '444-444-444',
-            value: 'hobby', 
-            isActive: false 
-        }
-    ],
     todos: [
         { 
             id: '123-456-789',
@@ -58,76 +34,21 @@ const initialState = {
             isCompleted: false,
         }
     ],
-    current: null,
-    currentCategory: null,
-    categoryFormShown: false
+    currentTodo: null,
 }
 
 export default (state = initialState, action) => {
     switch(action.type) {
-        // CATEGORIES
-        case SHOW_CATEGORY_FORM:
-            // Set categoryFormShown to true / false depending on the payload
-            return {
-                ...state,
-                categoryFormShown: action.payload
-            }
-        case ADD_CATEGORY:
-            // Simply add new category from payload
-            return {
-                ...state,
-                categories: [...state.categories, action.payload]
-            }
-        case UPDATE_CATEGORY:
-            // Map categories, if id matches the payload id,
-            // return the Category from payload,
-            // else don't do anything and return Category
-            return {
-                ...state,
-                categories: state.categories.map(category => {
-                    if(category.id === action.payload.id) return action.payload 
-                    else return category
-                })
-            }
-        case DELETE_CATEGORY:
-            // Filter out the category that matches payload id
-            return {
-                ...state,
-                categories: state.categories.filter(category => category.id !== action.payload.id)
-            }
-        case SET_ACTIVE_CATEGORY:
-            // Set category from payload to active,
-            // unset current active category and return the rest
-            return {
-                ...state,
-                categories: state.categories.map(category => {
-                    if(category.id === action.payload.id) {
-                        category.isActive = true
-                        return category
-                    } else if(category.isActive) {
-                        category.isActive = false
-                        return category
-                    } else return category  
-                })
-            }
-        // CURRENT CATEGORY
-        case SET_CURRENT_CATEGORY:
-            return {
-                ...state,
-                currentCategory: action.payload
-            }
-        case CLEAR_CURRENT_CATEGORY:
-            return {
-                ...state,
-                currentCategory: null
-            }
-        // TODOS
+        
+        // ADD TODO
         case ADD_TODO:
             // Simply add Todo from payload
             return {
                 ...state,
                 todos: [...state.todos, action.payload]
             }
+
+        // CHECK TODO
         case CHECK_TODO:
             // Map todos, if id matches the payload id,
             // change isCompleted to the opposite and return Todo,
@@ -141,9 +62,11 @@ export default (state = initialState, action) => {
                     } else return todo
                 })
             }
+        
+        // UPDATE TODO
         case UPDATE_TODO:
             // Map todos, if id matches the payload id,
-            // return the Todo from payload,
+            // return the updated Todo from payload (replace it),
             // else don't do anything and return Todo 
             return {
                 ...state,
@@ -152,26 +75,30 @@ export default (state = initialState, action) => {
                     else return todo
                 })
             }
+
+        // DELETE TODO
         case DELETE_TODO:
-            // Filter out the Todo that matches
-            // the one from payload, compared by ids
+            // Filter out the Todo that matches the one from payload - delete it
             return {
                 ...state,
                 todos: state.todos.filter(todo => todo.id !== action.payload.id)
             }
-        // CURRENT TODO
+
+        // SET CURRENT TODO
         case SET_CURRENT_TODO:
-            // Simply set current from payload
             return {
                 ...state,
-                current: action.payload
+                currentTodo: action.payload
             }
+        
+        // CLEAR CURRENT TODO
         case CLEAR_CURRENT_TODO:
-            // Even more simply set current to null
             return {
                 ...state,
-                current: null
+                currentTodo: null
             }
+
+        // DEFAULT
         default:
             return state
     }

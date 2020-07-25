@@ -38,7 +38,7 @@ function TodoPage({ categories }) {
 }
 
 const mapStateToProps = state => ({
-    categories: state.todo.categories
+    categories: state.category.categories
 })
 
 TodoPage.propTypes = {

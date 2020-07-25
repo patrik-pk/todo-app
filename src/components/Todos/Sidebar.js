@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { showCategoryForm } from '../../actions/todoActions'
+import { showCategoryForm } from '../../actions/categoryActions'
 import SidebarItem from './SidebarItem'
 import SidebarForm from './SidebarForm'
 import plusIcon from '../../resources/icons/plus.svg'
@@ -40,8 +40,8 @@ function Sidebar({ categories, formActive, showCategoryForm }) {
 }
 
 const mapStateToProps = state => ({
-    categories: state.todo.categories,
-    formActive: state.todo.categoryFormShown
+    categories: state.category.categories,
+    formActive: state.category.categoryFormShown
 })
 
 Sidebar.propTypes = {
