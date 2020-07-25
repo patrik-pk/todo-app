@@ -7,21 +7,30 @@ import {
     deleteCategory, 
     showCategoryForm 
 } from '../../actions/categoryActions'
+import { deleteTodo } from '../../actions/todoActions'
 import editIcon from '../../resources/icons/edit.svg'
 import deleteIcon from '../../resources/icons/delete.svg'
 
 function SidebarItem(props) {
     // Pull out from props
-    const { 
+    const {
+        todos, 
         category, 
         categories, 
         setActiveCategory, 
         setCurrentCategory, 
         deleteCategory, 
-        showCategoryForm 
+        showCategoryForm ,
+        deleteTodo
     } = props
 
     const { value, isActive } = category
+
+    // Find Todos with matching category
+    const findTodosByCategory = (todos, category) => {
+        return todos.filter(todo => todo.category === category.value)
+    }
+
 
     // On Click
     const onClick = () => setActiveCategory(category)
@@ -36,6 +45,8 @@ function SidebarItem(props) {
     const onDelete = () => {
         // Delete category
         deleteCategory(category)
+        // Delete all Todos within the same category
+        deleteTodo(findTodosByCategory(todos, category))
         // Set active category to the first one, if it is not the one being deleted
         if(categories[0] !== category) setActiveCategory(categories[0])
         // If it is, set it to the one after
@@ -61,16 +72,25 @@ function SidebarItem(props) {
 }
 
 const mapStateToProps = state => ({
+    todos: state.todo.todos,
     categories: state.category.categories 
 })
 
 SidebarItem.propTypes = {
+    todos: PropTypes.array.isRequired,
     category: PropTypes.object.isRequired,
     categories: PropTypes.array.isRequired,
     setActiveCategory: PropTypes.func.isRequired,
     setCurrentCategory: PropTypes.func.isRequired,
     deleteCategory: PropTypes.func.isRequired,
     showCategoryForm: PropTypes.func.isRequired,
+    deleteTodo: PropTypes.func.isRequired,
 }
 
-export default connect(mapStateToProps, { setActiveCategory, setCurrentCategory, deleteCategory, showCategoryForm })(SidebarItem)
+export default connect(mapStateToProps, { 
+    setActiveCategory, 
+    setCurrentCategory, 
+    deleteCategory, 
+    showCategoryForm,
+    deleteTodo 
+})(SidebarItem)

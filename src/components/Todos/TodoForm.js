@@ -42,8 +42,8 @@ function TodoForm({ addTodo, updateTodo, currentTodo, clearCurrentTodo, categori
         if(currentTodo === null) {
             addTodo({ 
                 id: uuidv4(), 
-                task,
                 category: getActiveCategory(categories),
+                task,
                 isCompleted: false 
             })
             setTask('')
@@ -51,8 +51,8 @@ function TodoForm({ addTodo, updateTodo, currentTodo, clearCurrentTodo, categori
         } else {
             updateTodo({ 
                 id: currentTodo.id, 
-                task, 
                 category: getActiveCategory(categories),
+                task, 
                 isCompleted: currentTodo.isCompleted
             })
             clearCurrentTodo()

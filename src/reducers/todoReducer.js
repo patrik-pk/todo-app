@@ -17,20 +17,20 @@ const initialState = {
         },
         { 
             id: '123-456-781',
-            task: 'Wash the dishes',
             category: 'work', 
+            task: 'Wash the dishes',
             isCompleted: false, 
         },
         { 
             id: '123-456-782',
-            task: 'Go for a walk',
             category: 'work', 
+            task: 'Go for a walk',
             isCompleted: false, 
         },
         {
             id: '123-777-782',
-            task: 'Fullbody Gym Workout',
             category: 'exercise',
+            task: 'Fullbody Gym Workout',
             isCompleted: false,
         }
     ],
@@ -78,10 +78,21 @@ export default (state = initialState, action) => {
 
         // DELETE TODO
         case DELETE_TODO:
-            // Filter out the Todo that matches the one from payload - delete it
-            return {
-                ...state,
-                todos: state.todos.filter(todo => todo.id !== action.payload.id)
+            // Delete multiple Todos - when deleting category
+            if(Array.isArray(action.payload)) {
+                // Filter out every todo that matches todo from payload
+                return {
+                    ...state,
+                    todos: state.todos.filter(todo => !action.payload.includes(todo))
+                }
+            }
+            // Delete single Todo
+            else {
+                // Filter out the Todo that matches the one from payload - delete it
+                return {
+                    ...state,
+                    todos: state.todos.filter(todo => todo.id !== action.payload.id)
+                }
             }
 
         // SET CURRENT TODO

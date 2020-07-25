@@ -8,6 +8,15 @@ import plusIcon from '../../resources/icons/plus.svg'
 import minusIcon from '../../resources/icons/minus.svg'
 
 function Sidebar({ categories, formActive, showCategoryForm }) {
+    // Map Categories
+    const mapCategories = (categories) => {
+        return categories.map(category => <SidebarItem
+            // Category rerenders when isActive changes with this key
+            key={category.id + category.isActive.toString()}
+            category={category}
+        />)
+    }
+
     return (
         <div className='sidebar'>
             <div className={`categories-top ${formActive ? 'active' : ''}`}>
@@ -26,13 +35,7 @@ function Sidebar({ categories, formActive, showCategoryForm }) {
             <SidebarForm />
             <ul className='categories'>
                 { // Map categories if the array isn't empty
-                categories.length > 0 ?
-                    categories.map(category => <SidebarItem 
-                        // Category rerenders when isActive changes with this key
-                        key={category.id + category.isActive.toString()} 
-                        category={category}
-                    />)
-                : null
+                categories.length > 0 ? mapCategories(categories) : null
                 }
             </ul>
         </div>
