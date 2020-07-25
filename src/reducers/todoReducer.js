@@ -80,10 +80,15 @@ export default (state = initialState, action) => {
         case DELETE_TODO:
             // Delete multiple Todos - when deleting category
             if(Array.isArray(action.payload)) {
-                // Filter out every todo that matches todo from payload
+                // Filter out every Todo if its id matches the payload id - delete them 
                 return {
                     ...state,
-                    todos: state.todos.filter(todo => !action.payload.includes(todo))
+                    todos: state.todos.filter(todo => {
+                        // Map payload Todos into an array of their id's
+                        const mappedIds = action.payload.map(payloadTodo => payloadTodo.id)
+                        // Return Todo only if its id doesn't match any from the payload 
+                        return !mappedIds.includes(todo.id)
+                    })
                 }
             }
             // Delete single Todo
