@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { 
@@ -26,7 +25,6 @@ function SidebarForm(props) {
         setActiveCategory 
     } = props
     
-    const history = useHistory()
     const [categoryInput, setCategoryInput] = useState('')
 
     // Watch for currentCategory change
@@ -71,7 +69,6 @@ function SidebarForm(props) {
             
             updateCategory({ // update category
                 id: currentCategory.id,
-                linkTo: `/todos/${categoryInput}`,
                 value: categoryInput,
                 isActive: currentCategory.isActive
             })
@@ -88,18 +85,15 @@ function SidebarForm(props) {
             } // If it doesn't, create one 
             else {
                 const id = uuidv4()
-                const linkTo = `/todos/${categoryInput}`
 
                 addCategory({ // create new category
                     id,
-                    linkTo,
                     value: categoryInput,
                     isActive: false
                 })       
                 setCategoryInput('') // clear input
                 showCategoryForm(false) // hide form
                 setActiveCategory({ id }) // set created category to active
-                history.push(linkTo) // redirect to created category
             }
         }
     }

@@ -28,9 +28,7 @@ function Sidebar({ categories, formActive, showCategoryForm }) {
                 { // Map categories if the array isn't empty
                 categories.length > 0 ?
                     categories.map(category => <SidebarItem 
-                        // Key is equal to combination of id and isActive boolean,
-                        // this way the Component rerenders when isActive value is changed.
-                        // Seems weird to me, but it works. :-)
+                        // Category rerenders when isActive changes with this key
                         key={category.id + category.isActive.toString()} 
                         category={category}
                     />)

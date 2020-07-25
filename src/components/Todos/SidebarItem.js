@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { setActiveCategory, setCurrentCategory, deleteCategory, showCategoryForm } from '../../actions/todoActions'
@@ -7,7 +6,7 @@ import editIcon from '../../resources/icons/edit.svg'
 import deleteIcon from '../../resources/icons/delete.svg'
 
 function SidebarItem({ category, categories, setActiveCategory, setCurrentCategory, deleteCategory, showCategoryForm }) {
-    const { linkTo, value, isActive } = category
+    const { value, isActive } = category
 
     const onClick = () => setActiveCategory(category)
 
@@ -28,13 +27,9 @@ function SidebarItem({ category, categories, setActiveCategory, setCurrentCatego
     
     return (
         <li className={`category-item ${isActive ? 'active' : ''}`}>
-            <Link 
-                className='link' 
-                to={linkTo}
-                onClick={onClick}
-            >
+            <p className='link' onClick={onClick} >
             {value.charAt(0).toUpperCase() + value.slice(1)}
-            </Link>
+            </p>
             <div className='options'>
                 <button className='edit-btn' onClick={onEdit}>
                     <img className='icon' alt='' src={editIcon} />

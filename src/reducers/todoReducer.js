@@ -18,19 +18,16 @@ const initialState = {
     categories: [
         { 
             id: '222-222-222',
-            linkTo: '/todos/work',
             value: 'work', 
             isActive: true 
         },
         { 
             id: '333-333-333',
-            linkTo: '/todos/exercise',
             value: 'exercise', 
             isActive: false 
         },
         { 
             id: '444-444-444',
-            linkTo: '/todos/hobby',
             value: 'hobby', 
             isActive: false 
         }
