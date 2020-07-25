@@ -9,11 +9,11 @@ import '../../styles/todos/todos.css'
 
 function TodoPage({ categories }) {
     // Filter out the active category
-    const getCurrentCategory = categories => {
-        let currCat = categories.filter(category => category.isActive)
-        currCat = currCat[0].value
-        currCat = currCat.charAt(0).toUpperCase() + currCat.slice(1)
-        return currCat
+    const getActiveCategory = categories => {
+        let activeCat = categories.filter(category => category.isActive)
+        activeCat = activeCat[0].value
+        activeCat = activeCat.charAt(0).toUpperCase() + activeCat.slice(1)
+        return activeCat
     }
 
     return (
@@ -25,7 +25,7 @@ function TodoPage({ categories }) {
                 <React.Fragment>
                     <h3 className='current-category'>
                         Currently in: 
-                        <span className="curr-cat">{getCurrentCategory(categories)}</span>
+                        <span className="curr-cat">{getActiveCategory(categories)}</span>
                     </h3>
                     <TodoForm />
                     <TodoList />
