@@ -6,7 +6,7 @@ import store from './store'
 import Navbar from './components/Navbar/Navbar'
 import Register from './components/Entry/Register'
 import Login from './components/Entry/Login'
-import TodoPage from './components/Todos/TodoPage'
+import MainPage from './components/MainPage'
 
 import './styles/_global/style.css'
 
@@ -19,7 +19,7 @@ export default function App() {
           <Switch>
             <Route exact path='/register' component={Register} />
             <Route exact path='/login' component={Login} />
-            <Route path='/todos' component={TodoPage} />
+            <Route path='/todos' component={MainPage} />
           </Switch>
         </div>
       </Router>

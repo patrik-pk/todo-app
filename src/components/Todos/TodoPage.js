@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import Sidebar from './Sidebar'
 import TodoForm from './TodoForm'
 import TodoList from './TodoList'
 
@@ -17,22 +16,19 @@ function TodoPage({ categories }) {
     }
 
     return (
-        <div className='todo-page'>
-            <Sidebar />
-            <div className='todo-section'>
-                { // If categories isn't empty, render todos
-                categories.length > 0 ?
-                <React.Fragment>
-                    <h3 className='current-category'>
-                        Currently in: 
-                        <span className="curr-cat">{getActiveCategory(categories)}</span>
-                    </h3>
-                    <TodoForm />
-                    <TodoList />
-                </React.Fragment>
-                : 'No categories'
-                }
-            </div>
+        <div className='todo-section'>
+            { // If categories isn't empty, render todos
+            categories.length > 0 ?
+            <React.Fragment>
+                <h3 className='current-category'>
+                    Currently in: 
+                    <span className="curr-cat">{getActiveCategory(categories)}</span>
+                </h3>
+                <TodoForm />
+                <TodoList />
+            </React.Fragment>
+            : 'No categories'
+            }
         </div>
     )
 }

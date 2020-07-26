@@ -7,6 +7,8 @@ import SidebarForm from './SidebarForm'
 import plusIcon from '../../resources/icons/plus.svg'
 import minusIcon from '../../resources/icons/minus.svg'
 
+import '../../styles/sidebar/sidebar.css'
+
 function Sidebar({ categories, formActive, showCategoryForm }) {
     // Map Categories
     const mapCategories = (categories) => {
