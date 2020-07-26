@@ -8,6 +8,7 @@ import {
     clearCurrentCategory, 
     updateCategory 
 } from '../../actions/categoryActions'
+import { updateMultipleTodos } from '../../actions/todoActions'
 import { v4 as uuidv4 } from 'uuid'
 import plusIcon from '../../resources/icons/plus.svg'
 import clearIcon from '../../resources/icons/clear.svg'
@@ -15,6 +16,7 @@ import clearIcon from '../../resources/icons/clear.svg'
 function SidebarForm(props) {
     // Pull out from props
     const { 
+        todos,
         formActive, 
         categories, 
         currentCategory, 
@@ -22,7 +24,8 @@ function SidebarForm(props) {
         updateCategory, 
         showCategoryForm, 
         addCategory, 
-        setActiveCategory 
+        setActiveCategory,
+        updateMultipleTodos 
     } = props
     
     const [categoryInput, setCategoryInput] = useState('')
@@ -69,6 +72,11 @@ function SidebarForm(props) {
                 console.log(`Category ${catInput} already exists.`)
             } // If it doesn't, update one 
             
+            // Update Todos category
+            const todosToUpdate = todos.filter(todo => todo.category === currentCategory.value)
+
+            updateMultipleTodos(todosToUpdate, catInput)
+
             updateCategory({ // update category
                 id: currentCategory.id,
                 value: catInput,
@@ -124,6 +132,7 @@ function SidebarForm(props) {
 }
 
 const mapStateToProps = state => ({
+    todos: state.todo.todos,
     formActive: state.category.categoryFormShown,
     categories: state.category.categories,
     currentCategory: state.category.currentCategory
@@ -135,8 +144,10 @@ SidebarForm.propTypes = {
     showCategoryForm: PropTypes.func.isRequired,
     clearCurrentCategory: PropTypes.func.isRequired,
     updateCategory: PropTypes.func.isRequired,
+    updateMultipleTodos: PropTypes.func.isRequired,
     formActive: PropTypes.bool.isRequired,
     categories: PropTypes.array.isRequired,
+    todos: PropTypes.array.isRequired,
 }
 
 export default connect(mapStateToProps, { 
@@ -144,5 +155,6 @@ export default connect(mapStateToProps, {
     addCategory, 
     setActiveCategory, 
     clearCurrentCategory, 
-    updateCategory 
+    updateCategory,
+    updateMultipleTodos 
 })(SidebarForm)

@@ -7,7 +7,7 @@ import {
     deleteCategory, 
     showCategoryForm 
 } from '../../actions/categoryActions'
-import { deleteTodo } from '../../actions/todoActions'
+import { deleteMultipleTodos } from '../../actions/todoActions'
 import editIcon from '../../resources/icons/edit.svg'
 import deleteIcon from '../../resources/icons/delete.svg'
 
@@ -20,8 +20,8 @@ function SidebarItem(props) {
         setActiveCategory, 
         setCurrentCategory, 
         deleteCategory, 
-        showCategoryForm ,
-        deleteTodo
+        showCategoryForm,
+        deleteMultipleTodos
     } = props
 
     const { value, isActive } = category
@@ -46,7 +46,7 @@ function SidebarItem(props) {
         // Delete category
         deleteCategory(category)
         // Delete all Todos within the same category
-        deleteTodo(findTodosByCategory(todos, category))
+        deleteMultipleTodos(findTodosByCategory(todos, category))
         // Set active category to the first one, if it is not the one being deleted
         if(categories[0] !== category) setActiveCategory(categories[0])
         // If it is, set it to the one after
@@ -84,7 +84,7 @@ SidebarItem.propTypes = {
     setCurrentCategory: PropTypes.func.isRequired,
     deleteCategory: PropTypes.func.isRequired,
     showCategoryForm: PropTypes.func.isRequired,
-    deleteTodo: PropTypes.func.isRequired,
+    deleteMultipleTodos: PropTypes.func.isRequired,
 }
 
 export default connect(mapStateToProps, { 
@@ -92,5 +92,5 @@ export default connect(mapStateToProps, {
     setCurrentCategory, 
     deleteCategory, 
     showCategoryForm,
-    deleteTodo 
+    deleteMultipleTodos 
 })(SidebarItem)

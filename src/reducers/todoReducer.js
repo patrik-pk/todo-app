@@ -2,7 +2,9 @@ import {
     ADD_TODO,
     CHECK_TODO,
     UPDATE_TODO,
+    UPDATE_MULTIPLE_TODOS,
     DELETE_TODO,
+    DELETE_MULTIPLE_TODOS,
     SET_CURRENT_TODO,
     CLEAR_CURRENT_TODO,
 } from '../actions/types'
@@ -76,28 +78,45 @@ export default (state = initialState, action) => {
                 })
             }
 
+        // UPDATE MULTIPLE TODOS - when renaming category
+        case UPDATE_MULTIPLE_TODOS:
+            // Map Todos, update Todos that match the ones within payload
+            return {
+                ...state,
+                todos: state.todos.map(todo => {
+                    // Map payload Todos into an array of their id's
+                    const mappedIds = action.payload.todos.map(payloadTodo => payloadTodo.id)
+                    // If Todo id matches one of the payload Todo id,
+                    // update that Todos category to the new category from payload
+                    if (mappedIds.includes(todo.id)) {
+                        todo.category = action.payload.newCategory
+                        return todo
+                    // Else keep Todo as it is
+                    } else {
+                        return todo
+                    }
+                })
+            }
+
         // DELETE TODO
         case DELETE_TODO:
-            // Delete multiple Todos - when deleting category
-            if(Array.isArray(action.payload)) {
-                // Filter out every Todo if its id matches the payload id - delete them 
-                return {
-                    ...state,
-                    todos: state.todos.filter(todo => {
-                        // Map payload Todos into an array of their id's
-                        const mappedIds = action.payload.map(payloadTodo => payloadTodo.id)
-                        // Return Todo only if its id doesn't match any from the payload 
-                        return !mappedIds.includes(todo.id)
-                    })
-                }
+            // Filter out the Todo that matches the one from payload - delete it
+            return {
+                ...state,
+                todos: state.todos.filter(todo => todo.id !== action.payload.id)
             }
-            // Delete single Todo
-            else {
-                // Filter out the Todo that matches the one from payload - delete it
-                return {
-                    ...state,
-                    todos: state.todos.filter(todo => todo.id !== action.payload.id)
-                }
+
+        // DELETE MULTIPLE TODOS - when deleting category
+        case DELETE_MULTIPLE_TODOS:
+            // Filter out all Todos that match the ones within payload
+            return {
+                ...state,
+                todos: state.todos.filter(todo => {
+                    // Map payload Todos into an array of their id's
+                    const mappedIds = action.payload.map(payloadTodo => payloadTodo.id)
+                    // Return Todo only if its id doesn't match any from the payload 
+                    return !mappedIds.includes(todo.id)
+                })
             }
 
         // SET CURRENT TODO

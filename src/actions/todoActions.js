@@ -2,7 +2,9 @@ import {
     ADD_TODO,
     CHECK_TODO,
     UPDATE_TODO,
+    UPDATE_MULTIPLE_TODOS,
     DELETE_TODO,
+    DELETE_MULTIPLE_TODOS,
     SET_CURRENT_TODO,
     CLEAR_CURRENT_TODO,
 } from './types'
@@ -24,9 +26,19 @@ export const updateTodo = todo => ({
     payload: todo
 })
 
+export const updateMultipleTodos = (todos, newCategory) => ({
+    type: UPDATE_MULTIPLE_TODOS,
+    payload: { todos, newCategory }
+})
+
 export const deleteTodo = todo => ({
     type: DELETE_TODO,
     payload: todo
+})
+
+export const deleteMultipleTodos = todos => ({
+    type: DELETE_MULTIPLE_TODOS,
+    payload: todos
 })
 
 // CURRENT TODO
