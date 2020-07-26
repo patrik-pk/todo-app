@@ -64,17 +64,22 @@ function SidebarForm(props) {
         let catInput = categoryInput.trim()
         catInput = catInput.toLowerCase()
         
+        if(catInput === '') return
+        
         // If current category exists, UPDATE Category
         if(currentCategory !== null) {
             // If category with same value already exists
             if (categoryExists(categories)) {
                 // Add warning box in the future
                 console.log(`Category ${catInput} already exists.`)
-            } // If it doesn't, update one 
+                return
+            } 
             
-            // Update Todos category
+            // If it doesn't, update one 
+            
+            // Filter out todos with matching current category
+            // and update their category to the renamed one
             const todosToUpdate = todos.filter(todo => todo.category === currentCategory.value)
-
             updateMultipleTodos(todosToUpdate, catInput)
 
             updateCategory({ // update category
@@ -92,19 +97,19 @@ function SidebarForm(props) {
             if(categoryExists(categories)) {
                 // Add warning box in the future
                 console.log(`Category ${catInput} already exists.`)
-            } // If it doesn't, create one 
-            else {
-                const id = uuidv4()
+                return
+            } 
+            // If it doesn't, create one 
+            const id = uuidv4()
 
-                addCategory({ // create new category
-                    id,
-                    value: catInput,
-                    isActive: false
-                })       
-                setCategoryInput('') // clear input
-                showCategoryForm(false) // hide form
-                setActiveCategory({ id }) // set created category to active
-            }
+            addCategory({ // create new category
+                id,
+                value: catInput,
+                isActive: false
+            })       
+            setCategoryInput('') // clear input
+            showCategoryForm(false) // hide form
+            setActiveCategory({ id }) // set created category to active
         }
     }
 

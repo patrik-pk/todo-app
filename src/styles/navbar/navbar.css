@@ -9,6 +9,12 @@
   overflow-x: hidden;
 }
 
+* .main-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 * a {
   text-decoration: none;
   color: black;
