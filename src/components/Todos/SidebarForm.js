@@ -58,18 +58,19 @@ function SidebarForm(props) {
     // On Submit
     const onSubmit = (e) => {
         e.preventDefault()
-
+        const trimmedInput = categoryInput.trim()
+        
         // If current category exists, UPDATE Category
         if(currentCategory !== null) {
             // If category with same value already exists
             if (categoryExists(categories)) {
                 // Add warning box in the future
-                console.log(`Category ${categoryInput} already exists.`)
+                console.log(`Category ${trimmedInput} already exists.`)
             } // If it doesn't, update one 
             
             updateCategory({ // update category
                 id: currentCategory.id,
-                value: categoryInput,
+                value: trimmedInput,
                 isActive: currentCategory.isActive
             })
             clearCurrentCategory() // clear current category
@@ -81,14 +82,14 @@ function SidebarForm(props) {
             // If category with same value already exists
             if(categoryExists(categories)) {
                 // Add warning box in the future
-                console.log(`Category ${categoryInput} already exists.`)
+                console.log(`Category ${trimmedInput} already exists.`)
             } // If it doesn't, create one 
             else {
                 const id = uuidv4()
 
                 addCategory({ // create new category
                     id,
-                    value: categoryInput,
+                    value: trimmedInput,
                     isActive: false
                 })       
                 setCategoryInput('') // clear input
