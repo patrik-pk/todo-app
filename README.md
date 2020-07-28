@@ -1,5 +1,5 @@
 # Todo App
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Demo](https://patrikpk-todo.netlify.app)
 
 ![Showcase](https://github.com/patrik-pk/todo-client/blob/master/showcase.jpg)
 
