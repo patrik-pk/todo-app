@@ -15,7 +15,7 @@ $desktop-width: 1200px;
 }
 
 @mixin tablet {
-    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width}) {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
         @content;
     }
 }
@@ -34,7 +34,9 @@ $desktop-width: 1200px;
     .app {
         max-width: 100vw;
         min-height: 100vh;
+        max-height: 100vh;
         overflow-x: hidden;
+        overflow-y: hidden;
     }
 
     .main-page {

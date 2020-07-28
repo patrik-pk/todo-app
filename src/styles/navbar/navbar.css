@@ -83,9 +83,8 @@
   right: -100vw;
   width: 100vw;
   height: calc(100vh - 50px);
-  background: #3dbd99;
-  color: white;
   z-index: 100;
+  color: black;
   -webkit-transition: 500ms right;
   transition: 500ms right;
 }

@@ -56,9 +56,8 @@ $toggler-size: 24px;
         right: -100vw;
         width: 100vw;
         height: calc(100vh - #{$navbar-height});
-        background: $color-primary;
-        color: white;
         z-index: 100;
+        color: black;
         transition: 500ms right;
         &.active {
             right: 0;

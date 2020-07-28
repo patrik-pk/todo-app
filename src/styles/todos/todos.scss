@@ -28,7 +28,7 @@ $todo-padding: 10px 10px;
 $todo-mb: 10px;
 
 // Task
-$task-max-width: 60%;
+$task-max-width: 90%;
 $task-ml: 10px;
 $task-font-size: 1.1rem;
 $checkbox-size: 18px;
@@ -39,10 +39,18 @@ $todo-buttons-padding: 5px;
 $todo-buttons-ml: 2px;
 
 
-// Todo Section
+// Todo Section - Desktop
 .todo-section {
-    width: calc(0.9 * (100vw - #{$sidebar-width}));
+    width: 90vw;
     margin: 0 auto;
+
+    @include tablet {
+        width: 90vw;
+    }
+
+    @include desktop {
+        width: calc(0.9 * (100vw - #{$sidebar-width}));
+    }
 
     // No Categories Text
     .no-categories-text {
@@ -130,6 +138,13 @@ $todo-buttons-ml: 2px;
     .todo-list {
         margin-top: $todo-list-mt;
 
+        @include desktop {
+            overflow-y: scroll;
+            // those 130px are hardcoded and represent the height
+            // between Navbar and top of the Todo List
+            max-height: calc(100vh - #{$navbar-height} - 130px);
+        }
+
         // Todo Item (li)
         .todo-item {
             display: flex;
@@ -145,6 +160,7 @@ $todo-buttons-ml: 2px;
             &.completed {
                 .task-text {
                     font-style: italic;
+                    text-decoration: line-through;
                 }
             }
 

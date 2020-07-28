@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Sidebar from './Sidebar/Sidebar'
 import menu_icon from '../resources/icons/menu.svg'
 import '../styles/navbar/navbar.css'
 
@@ -15,9 +16,7 @@ export default function Navbar({ logo }) {
             </div>
             
             <div className={`menu-collapse ${menuActive && 'active'}`}>
-                <ul className='navbar-items collapsed'>
-                    Navbar Item
-                </ul>
+                <Sidebar sidebarType='mobile' />
             </div>
         </nav>
     )
