@@ -14,3 +14,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Overview
 Simple Todo App that I made with a purpose of making something simple. It doesn't look the best, but the point was to practice JavaScript and mostly learn how to use Redux.
+
+You can add/edit/delete category. Every category has its own Todos that you can also add/edit/delete. When you delete a category, all its Todos are removed along with it.
