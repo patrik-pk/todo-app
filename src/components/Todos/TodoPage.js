@@ -27,7 +27,7 @@ function TodoPage({ categories }) {
                 <TodoForm />
                 <TodoList />
             </React.Fragment>
-            : null // if not, don't render anything
+            : <p className='no-categories-text'>No categories found</p> // if not, don't render anything
             }
         </div>
     )

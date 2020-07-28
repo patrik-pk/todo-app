@@ -40,6 +40,10 @@
   margin: 0 auto;
 }
 
+.todo-section .no-categories-text {
+  margin-top: 20px;
+}
+
 .todo-section .current-category {
   margin-top: 20px;
   color: black;

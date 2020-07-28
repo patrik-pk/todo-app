@@ -5,7 +5,7 @@ import TodoPage from './Todos/TodoPage'
 export default function MainPage() {
     return (
         <div className='main-page'>
-            <Sidebar />
+            <Sidebar sidebarType='desktop' />
             <TodoPage />
         </div>
     )

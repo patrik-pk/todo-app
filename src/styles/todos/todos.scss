@@ -44,6 +44,11 @@ $todo-buttons-ml: 2px;
     width: calc(0.9 * (100vw - #{$sidebar-width}));
     margin: 0 auto;
 
+    // No Categories Text
+    .no-categories-text {
+        margin-top: $current-category-mt;
+    }
+
     // Current Category - The Heading Above The Todo Input Field
     .current-category {
         margin-top: $current-category-mt;

@@ -9,7 +9,7 @@ import minusIcon from '../../resources/icons/minus.svg'
 
 import '../../styles/sidebar/sidebar.css'
 
-function Sidebar({ categories, formActive, showCategoryForm }) {
+function Sidebar({ categories, formActive, showCategoryForm, sidebarType }) {
     // Map Categories
     const mapCategories = (categories) => {
         return categories.map(category => <SidebarItem
@@ -20,7 +20,7 @@ function Sidebar({ categories, formActive, showCategoryForm }) {
     }
 
     return (
-        <div className='sidebar'>
+        <div className={`sidebar ${sidebarType}`}>
             <div className={`categories-top ${formActive ? 'active' : ''}`}>
                 <h3 className='categories-heading'>Categories</h3>
                 { // If it's active, show the Minus button
@@ -57,6 +57,7 @@ Sidebar.propTypes = {
     categories: PropTypes.array.isRequired,
     formActive: PropTypes.bool.isRequired,
     showCategoryForm: PropTypes.func.isRequired,
+    sidebarType: PropTypes.string.isRequired,
 }
 
 export default connect(mapStateToProps, { showCategoryForm })(Sidebar)
