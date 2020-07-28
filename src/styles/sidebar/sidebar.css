@@ -42,7 +42,7 @@
   height: calc(100vh - 50px);
   background: white;
   border-right: 1px #bbb solid;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .sidebar.desktop {

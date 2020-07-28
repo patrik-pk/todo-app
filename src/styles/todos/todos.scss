@@ -137,7 +137,7 @@ $todo-buttons-ml: 2px;
     // Todo List (ul)
     .todo-list {
         margin-top: $todo-list-mt;
-        overflow-y: scroll;
+        overflow-y: auto;
         // those 130px are hardcoded and represent the height
         // between Navbar and top of the Todo List
         max-height: calc(100vh - #{$navbar-height} - 130px);

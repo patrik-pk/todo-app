@@ -127,7 +127,7 @@
 
 .todo-section .todo-list {
   margin-top: 20px;
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: calc(100vh - 50px - 130px);
 }
 

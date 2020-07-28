@@ -34,7 +34,7 @@ $category-option-size: 18px;
     height: calc(100vh - #{$navbar-height});
     background: $sidebar-bg;
     border-right: 1px #bbb solid;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     // Desktop
     &.desktop {
