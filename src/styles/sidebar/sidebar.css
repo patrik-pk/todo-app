@@ -138,6 +138,10 @@
   border-top: 1px #bbb solid;
 }
 
+.sidebar .categories .no-categories-text {
+  padding: 10px 0 0 15px;
+}
+
 .sidebar .categories .category-item {
   position: relative;
 }

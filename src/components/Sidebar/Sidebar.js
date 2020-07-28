@@ -37,7 +37,11 @@ function Sidebar({ categories, formActive, showCategoryForm }) {
             <SidebarForm />
             <ul className='categories'>
                 { // Map categories if the array isn't empty
-                categories.length > 0 ? mapCategories(categories) : null
+                categories.length > 0 
+                ? 
+                mapCategories(categories) 
+                : 
+                <p className='no-categories-text'>Start by creating a category</p>
                 }
             </ul>
         </div>

@@ -70,58 +70,6 @@ $toggler-size: 24px;
         }
     }
 
-    // Navbar Items (ul)
-    .navbar-items {
-        display: flex;
-
-        // Navbar Item (li)
-        .navbar-item {
-
-            // Navbar Link
-            .link {
-                color: $link-color;
-            }
-        }
-
-        // Expanded Navbar Items (ul, for desktop)
-        &.expanded {
-            display: none;
-            flex-direction: row;
-            margin-right: $navbar-padding;
-
-            .navbar-item {
-                margin-left: $link-expanded-ml;
-                &:first-child {
-                    margin-left: 0;
-                }
-            }
-
-            @include desktop { 
-                display: flex; 
-            }
-        }
-
-        // Collapsed Navbar Items (ul, for mobile & tablet)
-        &.collapsed {
-            flex-direction: column;
-            
-            .navbar-item {
-
-                .link {
-                    display: flex;
-                    align-items: center;
-                    width: 100%;
-                    height: $link-collapsed-height;
-                    border-bottom: 1px white solid;
-
-                    .link-value {
-                        padding-left: $link-collapsed-pl;
-                    }
-                }
-            }
-        }
-    }
-
     // Don't display toggle button and menu on desktop
     .menu-toggler-container, .menu-collapse {
         @include desktop {

@@ -131,6 +131,11 @@ $category-option-size: 18px;
     .categories {
         border-top: 1px #bbb solid;
 
+        // Empty Categories Text
+        .no-categories-text {
+            padding: 10px 0 0 $categories-top-padding-horizontal;
+        }
+
         // Category Item (li)
         .category-item {
             position: relative;
