@@ -9,6 +9,13 @@
   overflow-x: hidden;
 }
 
+@media (min-width: 1200px) {
+  * .app {
+    overflow-y: hidden;
+    max-height: 100vh;
+  }
+}
+
 * .main-page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -93,7 +100,7 @@
   right: 0;
 }
 
-@media (min-width: 768px) and (max-width: 1200px) {
+@media (min-width: 768px) and (max-width: 1199px) {
   .navbar .menu-collapse {
     width: 300px;
     right: -300px;

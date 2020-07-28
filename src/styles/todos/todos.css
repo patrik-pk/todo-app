@@ -127,13 +127,8 @@
 
 .todo-section .todo-list {
   margin-top: 20px;
-}
-
-@media (min-width: 1200px) {
-  .todo-section .todo-list {
-    overflow-y: scroll;
-    max-height: calc(100vh - 50px - 130px);
-  }
+  overflow-y: scroll;
+  max-height: calc(100vh - 50px - 130px);
 }
 
 .todo-section .todo-list .todo-item {

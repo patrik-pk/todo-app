@@ -137,13 +137,10 @@ $todo-buttons-ml: 2px;
     // Todo List (ul)
     .todo-list {
         margin-top: $todo-list-mt;
-
-        @include desktop {
-            overflow-y: scroll;
-            // those 130px are hardcoded and represent the height
-            // between Navbar and top of the Todo List
-            max-height: calc(100vh - #{$navbar-height} - 130px);
-        }
+        overflow-y: scroll;
+        // those 130px are hardcoded and represent the height
+        // between Navbar and top of the Todo List
+        max-height: calc(100vh - #{$navbar-height} - 130px);
 
         // Todo Item (li)
         .todo-item {
