@@ -13,26 +13,26 @@ const initialState = {
     todos: [
         { 
             id: '123-456-789',
-            category: 'work',
-            task: 'Clean room', 
-            isCompleted: true, 
+            category: 'main',
+            task: 'Go for a walk', 
+            isCompleted: false, 
         },
         { 
             id: '123-456-781',
-            category: 'work', 
+            category: 'main', 
             task: 'Wash the dishes',
             isCompleted: false, 
         },
         { 
             id: '123-456-782',
-            category: 'work', 
-            task: 'Go for a walk',
-            isCompleted: false, 
+            category: 'main', 
+            task: 'Finish a homework',
+            isCompleted: true, 
         },
         {
             id: '123-777-782',
-            category: 'exercise',
-            task: 'Fullbody Gym Workout',
+            category: 'secondary',
+            task: 'Finish projects',
             isCompleted: false,
         }
     ],

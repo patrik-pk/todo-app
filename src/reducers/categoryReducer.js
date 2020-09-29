@@ -12,19 +12,14 @@ const initialState = {
     categories: [
         {
             id: '222-222-222',
-            value: 'work',
+            value: 'main',
             isActive: true
         },
         {
             id: '333-333-333',
-            value: 'exercise',
+            value: 'secondary',
             isActive: false
         },
-        {
-            id: '444-444-444',
-            value: 'hobby',
-            isActive: false
-        }
     ],
     currentCategory: null,
     categoryFormShown: false
